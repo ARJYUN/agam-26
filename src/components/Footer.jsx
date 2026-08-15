@@ -205,15 +205,15 @@ export const Footer = ({ onOpenRegisterModal }) => {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <Mail size={14} style={{ color: 'var(--accent-gold)' }} />
-                        <span>fest@agamcampus.edu</span>
+                        <span>nssce@nssce.ac.in</span>
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <Phone size={14} style={{ color: 'var(--accent-gold)' }} />
-                        <span>+91 98765 43210</span>
+                        <span>0491 255 5255</span>
                       </div>
                       <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
                         <MapPin size={14} style={{ color: 'var(--accent-gold)', marginTop: '3px' }} />
-                        <span>Agam Campus, Main Road, Kerala, India</span>
+                        <span>NSS College of Engineering, Akathethara, Palakkad, Kerala 678008</span>
                       </div>
                     </div>
                   </div>
