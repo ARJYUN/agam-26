@@ -3,7 +3,7 @@ import { FloatingCorner } from './FloatingCorner';
 
 import { ScrollReveal } from './ScrollReveal';
 import { teamMembers } from '../data/festData';
-import { User, Shield, Users, Palette, Briefcase, Calendar } from 'lucide-react';
+import { User, Shield, Users, Palette, Briefcase, Monitor } from 'lucide-react';
 
 // A premium, stylized vector line-art avatar representing classical editorial portrait drawings
 const ArtisticAvatar = ({ seedId, gender = 'male' }) => {
@@ -51,9 +51,9 @@ export const OrganizingTeam = () => {
     { id: 'patron', label: 'Chief Patron', icon: <Shield size={18} /> },
     { id: 'faculty', label: 'Faculty Coordinators', icon: <User size={18} /> },
     { id: 'student', label: 'Student Coordinators', icon: <Users size={18} /> },
+    { id: 'tech', label: 'Tech Team', icon: <Monitor size={18} /> },
     { id: 'design', label: 'Design & Media Team', icon: <Palette size={18} /> },
-    { id: 'management', label: 'Management & Logistics', icon: <Briefcase size={18} /> },
-    { id: 'events', label: 'Event Coordinators', icon: <Calendar size={18} /> }
+    { id: 'management', label: 'Management & Logistics', icon: <Briefcase size={18} /> }
   ];
 
   const filteredMembers = viewAll 
@@ -80,7 +80,8 @@ export const OrganizingTeam = () => {
       }}>
         <img src="/17.png" alt="decorative left" style={{ 
           width: '260px', 
-          opacity: 0.7
+          opacity: 0.7,
+          marginRight: '20px'
         }} />
       </div>
 
@@ -192,58 +193,110 @@ export const OrganizingTeam = () => {
           {filteredMembers.map((member, index) => (
             <ScrollReveal key={member.id} delay={index * 80}>
               <div 
+                className="interactive-element team-tile"
+                data-cursor-text="VIEW"
                 style={{
                   backgroundColor: 'var(--bg-primary)',
                   border: '1px solid var(--border-color)',
-                  padding: '20px',
+                  padding: '15px 15px 25px 15px',
                   borderRadius: '2px',
                   boxShadow: 'var(--shadow-editorial)',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
                   textAlign: 'center',
-                  gap: '15px'
+                  gap: '18px',
+                  position: 'relative',
+                  transition: 'all 0.4s cubic-bezier(0.25, 1, 0.5, 1)',
+                  background: 'linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary))'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)';
+                  e.currentTarget.style.borderColor = 'var(--accent-gold)';
+                  e.currentTarget.style.boxShadow = '0 20px 40px -10px rgba(181, 138, 69, 0.2)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'none';
+                  e.currentTarget.style.borderColor = 'var(--border-color)';
+                  e.currentTarget.style.boxShadow = 'var(--shadow-editorial)';
                 }}
               >
-                {/* Avatar Outline container */}
+                {/* Decorative corner pin */}
                 <div style={{
-                  width: '90px',
-                  height: '110px',
+                  position: 'absolute',
+                  top: '8px',
+                  width: '6px',
+                  height: '6px',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(0,0,0,0.1)',
+                  boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.3)',
+                }} />
+
+                {/* Avatar Outline container (Artistic Frame) */}
+                <div style={{
+                  width: '100%',
+                  height: '140px',
                   borderRadius: '2px',
                   overflow: 'hidden',
-                  border: '1px solid var(--border-color)',
-                  backgroundColor: 'var(--bg-secondary)'
+                  border: '1px solid var(--border-color-dark)',
+                  backgroundColor: 'var(--bg-secondary)',
+                  padding: '4px',
+                  boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.03)'
                 }}>
-                  <ArtisticAvatar seedId={member.id} />
+                  <div style={{
+                    width: '100%',
+                    height: '100%',
+                    border: '1px dashed var(--border-color)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: 'var(--bg-primary)'
+                  }}>
+                    <ArtisticAvatar seedId={member.id} />
+                  </div>
                 </div>
 
                 {/* Member Text details */}
-                <div>
+                <div style={{ width: '100%', position: 'relative' }}>
+                  {/* Small decorative line */}
+                  <div style={{
+                    width: '30px',
+                    height: '1px',
+                    backgroundColor: 'var(--accent-gold)',
+                    margin: '0 auto 12px auto'
+                  }} />
+                  
                   <h4 style={{
-                    fontFamily: 'var(--font-display)',
-                    fontSize: '0.95rem',
-                    fontWeight: '800',
-                    textTransform: 'uppercase',
-                    color: 'var(--text-deep)'
+                    fontFamily: 'var(--font-editorial)',
+                    fontSize: '1.25rem',
+                    fontWeight: '700',
+                    color: 'var(--text-deep)',
+                    fontStyle: 'italic',
+                    marginBottom: '4px'
                   }}>
                     {member.name}
                   </h4>
                   <p style={{
                     fontSize: '0.75rem',
                     color: 'var(--text-muted)',
-                    marginTop: '4px',
-                    fontWeight: '600'
+                    fontFamily: 'var(--font-sans)',
+                    fontWeight: '600',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em'
                   }}>
                     {member.role}
                   </p>
                   <span style={{
-                    fontSize: '0.7rem',
+                    fontSize: '0.65rem',
                     color: 'var(--accent-red)',
                     fontFamily: 'var(--font-display)',
-                    fontWeight: '700',
-                    letterSpacing: '0.05em',
-                    marginTop: '2px',
-                    display: 'block'
+                    fontWeight: '800',
+                    letterSpacing: '0.1em',
+                    marginTop: '6px',
+                    display: 'inline-block',
+                    padding: '3px 8px',
+                    border: '1px solid rgba(158, 63, 50, 0.2)',
+                    borderRadius: '10px'
                   }}>
                     {member.dept}
                   </span>

@@ -319,9 +319,9 @@ export const teamMembers = [
   {
     id: 8,
     name: 'Sarang Nair',
-    role: 'Events Manager',
-    dept: 'CE',
-    group: 'events',
+    role: 'Tech Lead',
+    dept: 'CSE',
+    group: 'tech',
     image: 'sarang'
   }
 ];
