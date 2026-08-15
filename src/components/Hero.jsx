@@ -171,11 +171,11 @@ export const Hero = () => {
               }}>
                 <span style={{ fontSize: '1.25rem', color: 'var(--accent-red)', fontFamily: 'serif', display: 'block', lineHeight: '1', marginBottom: '8px' }}>"</span>
                 <p style={{
-                  fontSize: '0.85rem',
+                  fontSize: '0.95rem',
                   color: 'var(--text-muted)',
                   lineHeight: '1.6',
                   fontWeight: '500',
-                  fontFamily: 'var(--font-sans)',
+                  fontFamily: 'var(--font-malayalam)',
                   whiteSpace: 'pre-line'
                 }}>
                   ഹൃദയത്തിൽ വിരിഞ്ഞ കല,<br />

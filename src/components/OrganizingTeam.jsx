@@ -75,7 +75,7 @@ export const OrganizingTeam = () => {
         <ScrollReveal>
           <div style={{ marginBottom: '60px' }}>
             <h2 style={{ 
-              fontFamily: 'var(--font-display)', 
+              fontFamily: 'var(--font-malayalam)', 
               fontSize: 'clamp(2.5rem, 6vw, 4rem)', 
               fontWeight: '900',
               color: 'var(--accent-gold)',
