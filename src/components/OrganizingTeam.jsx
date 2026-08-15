@@ -76,7 +76,7 @@ export const OrganizingTeam = () => {
           <div style={{ marginBottom: '60px' }}>
             <h2 style={{ 
               fontFamily: 'var(--font-malayalam)', 
-              fontSize: 'clamp(4.5rem, 12vw, 5.5rem)', 
+              fontSize: 'clamp(2.5rem, 12vw, 5.5rem)', 
               fontWeight: '900',
               color: 'var(--accent-gold)',
               letterSpacing: '-0.02em',

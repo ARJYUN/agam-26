@@ -633,8 +633,25 @@ p,
   img[alt="decorative right"] {
     width: 100px !important;
   }
+}
 
-  .footer-section {
-    padding: 40px 16px 30px 16px !important;
-  }
+/* Infinite Marquee Animation */
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee-scroll 35s linear infinite;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
 }

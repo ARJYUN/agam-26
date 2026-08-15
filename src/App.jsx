@@ -9,6 +9,7 @@ import { Footer } from './components/Footer';
 import { AllEventsPage } from './components/AllEventsPage';
 import { RegisterModal } from './components/RegisterModal';
 import { Preloader } from './components/Preloader';
+import { MarqueeDivider } from './components/MarqueeDivider';
 
 function App() {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
@@ -91,8 +92,14 @@ function App() {
             {/* Categories and Event registration details */}
             <EventRegistration onOpenRegisterModal={handleOpenRegisterModal} />
 
+            {/* Infinite Marquee Divider */}
+            <MarqueeDivider />
+
             {/* Expandable Department standings */}
             <Leaderboard />
+
+            {/* Infinite Marquee Divider */}
+            <MarqueeDivider />
 
             {/* Organizing committee grid with custom vector avatars */}
             <OrganizingTeam />

@@ -391,60 +391,97 @@ export const Leaderboard = () => {
           </div>
         </ScrollReveal>
 
-        {/* Full standing popover drawer overlay */}
-        {showFullLeaderboard && (
-          <div style={{
-            position: 'fixed',
-            top: 0, left: 0, width: '100%', height: '100%',
-            backgroundColor: 'rgba(37, 32, 26, 0.4)',
-            backdropFilter: 'blur(3px)',
-            zIndex: 1000,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '20px'
-          }}>
-            <div style={{
-              width: '100%',
-              maxWidth: '600px',
-              backgroundColor: 'var(--bg-primary)',
-              border: '1px solid var(--border-color)',
-              borderRadius: '3px',
-              boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
-              padding: '30px',
-              position: 'relative'
-            }}>
-              <button 
-                onClick={() => setShowFullLeaderboard(false)}
-                style={{
-                  position: 'absolute', right: '20px', top: '20px',
-                  background: 'none', border: 'none', cursor: 'pointer',
-                  color: 'var(--text-deep)'
-                }}
-              >
-                Close &times;
-              </button>
+      </div>
 
-              <h3 style={{ fontFamily: 'var(--font-display)', textTransform: 'uppercase', fontSize: '1.4rem', marginBottom: '20px' }}>
+      {/* Full standing popover drawer overlay */}
+      {showFullLeaderboard && (
+        <div style={{
+          position: 'fixed',
+          top: 0, left: 0, width: '100%', height: '100%',
+          backgroundColor: 'rgba(21, 19, 17, 0.7)',
+          backdropFilter: 'blur(8px)',
+          zIndex: 9998,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '20px'
+        }}>
+          <div style={{
+            width: '100%',
+            maxWidth: '650px',
+            backgroundColor: 'var(--bg-primary)',
+            backgroundImage: 'url(/bg.png)',
+            border: '2px solid var(--accent-gold)',
+            borderRadius: '8px',
+            boxShadow: '0 30px 60px rgba(0,0,0,0.3)',
+            padding: 'clamp(20px, 5vw, 40px)',
+            position: 'relative',
+            maxHeight: '90vh',
+            overflowY: 'auto'
+          }}>
+            <button 
+              onClick={() => setShowFullLeaderboard(false)}
+              style={{
+                position: 'absolute', right: 'clamp(10px, 3vw, 20px)', top: 'clamp(10px, 3vw, 20px)',
+                background: 'rgba(37, 32, 26, 0.05)', border: '1px solid var(--border-color)', 
+                cursor: 'pointer', borderRadius: '50%', width: 'clamp(28px, 6vw, 36px)', height: 'clamp(28px, 6vw, 36px)',
+                color: 'var(--accent-red)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontWeight: 'bold', fontSize: 'clamp(1rem, 4vw, 1.2rem)', transition: 'all 0.3s'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = 'var(--accent-red)';
+                e.currentTarget.style.color = '#fff';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(37, 32, 26, 0.05)';
+                e.currentTarget.style.color = 'var(--accent-red)';
+              }}
+            >
+              &times;
+            </button>
+
+            <div style={{ textAlign: 'center', marginBottom: 'clamp(15px, 4vw, 30px)' }}>
+              <h3 style={{ fontFamily: 'var(--font-display)', color: 'var(--accent-gold)', textTransform: 'uppercase', fontSize: 'clamp(1.3rem, 5vw, 2rem)', margin: '0 0 10px 0' }}>
                 Complete Standings
               </h3>
+              <div style={{ width: '60px', height: '2px', backgroundColor: 'var(--accent-red)', margin: '0 auto' }} />
+            </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', maxHeight: '400px', overflowY: 'auto', paddingRight: '10px' }}>
-                {departmentStandings.map((deptRow) => (
-                  <div key={deptRow.dept} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: '8px' }}>
-                    <div style={{ display: 'flex', gap: '15px' }}>
-                      <span><strong>{deptRow.rank}</strong></span>
-                      <span>{deptRow.name} ({deptRow.dept})</span>
-                    </div>
-                    <span><strong>{deptRow.points} PTS</strong></span>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {departmentStandings.map((deptRow, index) => (
+                <div key={deptRow.dept} style={{ 
+                  display: 'flex', 
+                  justifyContent: 'space-between', 
+                  alignItems: 'center',
+                  backgroundColor: index < 3 ? 'var(--bg-tertiary)' : 'transparent',
+                  border: '1px solid var(--border-color)', 
+                  borderRadius: '4px',
+                  padding: 'clamp(8px, 2vw, 12px) clamp(10px, 3vw, 20px)' 
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(10px, 3vw, 20px)' }}>
+                    <span style={{ 
+                      fontFamily: 'var(--font-display)', 
+                      fontSize: 'clamp(1.1rem, 4vw, 1.5rem)', 
+                      fontWeight: 'bold', 
+                      color: index === 0 ? '#D4AF37' : index === 1 ? '#9E9E9E' : index === 2 ? '#CD7F32' : 'var(--text-muted)',
+                      minWidth: '25px',
+                      textAlign: 'center'
+                    }}>
+                      {deptRow.rank}
+                    </span>
+                    <span style={{ fontFamily: 'var(--font-sans)', fontWeight: '600', fontSize: 'clamp(0.9rem, 3.5vw, 1.1rem)', color: 'var(--text-deep)' }}>
+                      {deptRow.name} <span style={{ opacity: 0.5, fontSize: 'clamp(0.7rem, 2.5vw, 0.9rem)', fontWeight: 'normal' }}>({deptRow.dept})</span>
+                    </span>
                   </div>
-                ))}
-              </div>
+                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 'bold', color: 'var(--accent-red)', fontSize: 'clamp(0.9rem, 4vw, 1.2rem)', whiteSpace: 'nowrap' }}>
+                    {deptRow.points} <span style={{ fontSize: 'clamp(0.6rem, 2vw, 0.8rem)', opacity: 0.6 }}>PTS</span>
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
-        )}
-
-      </div>
+        </div>
+      )}
     </section>
   );
 };

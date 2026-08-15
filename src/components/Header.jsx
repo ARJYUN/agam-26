@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Heart } from 'lucide-react';
+import { Menu, X, Ticket } from 'lucide-react';
 import { InstagramIcon } from './SocialIcons';
 
 export const Header = ({ onOpenRegisterModal }) => {
@@ -210,7 +210,7 @@ export const Header = ({ onOpenRegisterModal }) => {
             <InstagramIcon size={14} />
           </a>
 
-          {/* Heart icon or Register button */}
+          {/* Ticket icon or Register button */}
           <button
             onClick={() => onOpenRegisterModal()}
             style={{
@@ -241,7 +241,7 @@ export const Header = ({ onOpenRegisterModal }) => {
             className="interactive-element"
             data-cursor-text="PASS"
           >
-            <Heart size={14} fill="currentColor" />
+            <Ticket size={14} />
           </button>
         </nav>
 
