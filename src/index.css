@@ -564,7 +564,7 @@ p,
   #home {
     justify-content: flex-start !important;
     padding-top: 80px !important;
-    min-height: 115vh !important;
+    min-height: 105vh !important;
   }
 
   /* Reorder hero blocks on mobile */
