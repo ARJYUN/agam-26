@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FloatingCorner } from './FloatingCorner';
 
 import { ScrollReveal } from './ScrollReveal';
 import { teamMembers } from '../data/festData';
-import { User, Shield, Users, Palette, Briefcase, Monitor } from 'lucide-react';
 
 // A premium, stylized vector line-art avatar representing classical editorial portrait drawings
 const ArtisticAvatar = ({ seedId, gender = 'male' }) => {
@@ -36,6 +35,7 @@ const ArtisticAvatar = ({ seedId, gender = 'male' }) => {
       <circle cx="67" cy="72" r="1.5" fill={theme.line} />
       <path d="M60 70 L60 80 L58 80" stroke={theme.line} strokeWidth="1" />
       <path d="M55 85 C57 87, 63 87, 65 85" stroke={theme.accent} strokeWidth="1.25" strokeLinecap="round" />
+
       <circle cx="42" cy="78" r="2" fill={theme.accent} />
       <circle cx="78" cy="78" r="2" fill={theme.accent} />
     </svg>
@@ -43,22 +43,6 @@ const ArtisticAvatar = ({ seedId, gender = 'male' }) => {
 };
 
 export const OrganizingTeam = () => {
-  const [activeGroup, setActiveGroup] = useState('student'); // Default student coordinators
-  const [viewAll, setViewAll] = useState(false);
-
-  // Circular groups layout definition matching screenshot
-  const committeeGroups = [
-    { id: 'patron', label: 'Chief Patron', icon: <Shield size={18} /> },
-    { id: 'faculty', label: 'Faculty Coordinators', icon: <User size={18} /> },
-    { id: 'student', label: 'Student Coordinators', icon: <Users size={18} /> },
-    { id: 'tech', label: 'Tech Team', icon: <Monitor size={18} /> },
-    { id: 'design', label: 'Design & Media Team', icon: <Palette size={18} /> },
-    { id: 'management', label: 'Management & Logistics', icon: <Briefcase size={18} /> }
-  ];
-
-  const filteredMembers = viewAll 
-    ? teamMembers 
-    : teamMembers.filter(member => member.group === activeGroup);
 
   return (
     <section 
@@ -87,239 +71,170 @@ export const OrganizingTeam = () => {
 
       <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 2, padding: '0 20px' }}>
         
-        {/* Header Titles */}
+        {/* Header Title - stylized like the reference image */}
         <ScrollReveal>
-          <div className="editorial-heading-block" style={{ textAlign: 'center', margin: '0 auto 50px auto' }}>
-            <span className="editorial-tagline">The minds behind AGAM</span>
-            <h2 className="editorial-title" style={{ fontSize: '2.5rem', letterSpacing: '0.08em' }}>The Committee</h2>
-            <div className="ornamental-divider" style={{ margin: '15px 0' }}>
-              <div className="ornamental-divider-motif">
-                <span />
-                <span className="accent" />
-                <span />
-              </div>
-            </div>
+          <div style={{ marginBottom: '60px' }}>
+            <h2 style={{ 
+              fontFamily: 'var(--font-display)', 
+              fontSize: 'clamp(2.5rem, 6vw, 4rem)', 
+              fontWeight: '900',
+              color: 'var(--accent-gold)',
+              letterSpacing: '0.05em',
+              marginBottom: '10px'
+            }}>
+              സംഘാടകർ
+            </h2>
+            <p style={{
+              fontFamily: 'var(--font-sans)',
+              fontSize: '0.9rem',
+              color: 'var(--text-muted)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.15em',
+              fontWeight: '600'
+            }}>
+              The Minds Behind Agam'26
+            </p>
           </div>
         </ScrollReveal>
 
-        {/* 6 Circular Categories Row */}
-        <ScrollReveal delay={100}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '20px',
-            maxWidth: '900px',
-            margin: '0 auto 60px auto'
-          }} className="committee-categories-row">
-            <style dangerouslySetInnerHTML={{__html: `
-              @media (min-width: 768px) {
-                .committee-categories-row {
-                  grid-template-columns: repeat(6, 1fr) !important;
-                }
-              }
-            `}} />
-
-            {committeeGroups.map((group) => {
-              const isActive = activeGroup === group.id && !viewAll;
-
-              return (
-                <div 
-                  key={group.id}
-                  onClick={() => {
-                    setViewAll(false);
-                    setActiveGroup(group.id);
-                  }}
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    gap: '12px',
-                    textAlign: 'center',
-                    cursor: 'pointer',
-                    transition: 'var(--transition-smooth)'
-                  }}
-                  className="interactive-element"
-                  data-cursor-text="SELECT"
-                >
-                  <div style={{
-                    width: '54px',
-                    height: '54px',
-                    borderRadius: '50%',
-                    border: isActive ? '2px solid var(--accent-gold)' : '1px solid var(--border-color-dark)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    backgroundColor: isActive ? 'var(--bg-primary)' : 'var(--bg-secondary)',
-                    color: isActive ? 'var(--accent-red)' : 'var(--text-muted)',
-                    boxShadow: isActive ? '0 4px 10px rgba(181, 138, 69, 0.15)' : 'none',
-                    transition: 'all 0.3s'
-                  }}>
-                    {group.icon}
-                  </div>
-                  
-                  <span style={{
-                    fontFamily: 'var(--font-display)',
-                    fontSize: '0.62rem',
-                    fontWeight: '800',
-                    letterSpacing: '0.08em',
-                    textTransform: 'uppercase',
-                    color: 'var(--text-deep)',
-                    lineHeight: '1.3'
-                  }}>
-                    {group.label}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </ScrollReveal>
-
-        {/* Selected Category Members Grid */}
-        <div style={{
+        {/* Vintage Scattered Grid Layout */}
+        <div className="vintage-team-grid" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-          gap: '30px',
-          maxWidth: '900px',
-          margin: '0 auto 40px auto'
-        }} className="committee-grid">
+          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+          gap: '50px 30px',
+          marginTop: '40px',
+          justifyItems: 'center'
+        }}>
           
           <style dangerouslySetInnerHTML={{__html: `
-            /* Clean visual grid structure */
-            .committee-grid > div {
-              transition: var(--transition-smooth);
+            .vintage-polaroid {
+              transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+              cursor: pointer;
+            }
+            .vintage-polaroid:hover {
+              transform: translateY(-10px) scale(1.05) rotate(0deg) !important;
+              z-index: 10 !important;
+              box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4) !important;
+            }
+            .vintage-polaroid:hover .polaroid-image {
+              filter: sepia(0.2) contrast(1.1) !important;
+            }
+            
+            /* Mobile 2-column grid scaling */
+            @media (max-width: 768px) {
+              .vintage-team-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 30px 10px !important;
+                padding: 0 5px;
+              }
+              .vintage-polaroid {
+                width: 100% !important;
+                max-width: 165px;
+                padding: 10px 10px 50px 10px !important;
+              }
+              .polaroid-image {
+                height: 160px !important;
+              }
+              .vintage-polaroid h4 {
+                font-size: 1rem !important;
+                margin-bottom: 0px !important;
+              }
+              .vintage-polaroid p {
+                font-size: 0.55rem !important;
+                letter-spacing: 0.05em !important;
+              }
             }
           `}} />
 
-          {filteredMembers.map((member, index) => (
-            <ScrollReveal key={member.id} delay={index * 80}>
-              <div 
-                className="interactive-element team-tile"
-                data-cursor-text="VIEW"
-                style={{
-                  backgroundColor: 'var(--bg-primary)',
-                  border: '1px solid var(--border-color)',
-                  padding: '15px 15px 25px 15px',
-                  borderRadius: '2px',
-                  boxShadow: 'var(--shadow-editorial)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  textAlign: 'center',
-                  gap: '18px',
-                  position: 'relative',
-                  transition: 'all 0.4s cubic-bezier(0.25, 1, 0.5, 1)',
-                  background: 'linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary))'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)';
-                  e.currentTarget.style.borderColor = 'var(--accent-gold)';
-                  e.currentTarget.style.boxShadow = '0 20px 40px -10px rgba(181, 138, 69, 0.2)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'none';
-                  e.currentTarget.style.borderColor = 'var(--border-color)';
-                  e.currentTarget.style.boxShadow = 'var(--shadow-editorial)';
-                }}
-              >
-                {/* Decorative corner pin */}
-                <div style={{
-                  position: 'absolute',
-                  top: '8px',
-                  width: '6px',
-                  height: '6px',
-                  borderRadius: '50%',
-                  backgroundColor: 'rgba(0,0,0,0.1)',
-                  boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.3)',
-                }} />
+          {teamMembers.map((member, index) => {
+            // Alternating random-ish rotation for the scattered effect
+            const rotations = [-4, 3, -2, 5, -5, 2, -3, 4];
+            const rotate = rotations[index % rotations.length];
 
-                {/* Avatar Outline container (Artistic Frame) */}
-                <div style={{
-                  width: '100%',
-                  height: '140px',
-                  borderRadius: '2px',
-                  overflow: 'hidden',
-                  border: '1px solid var(--border-color-dark)',
-                  backgroundColor: 'var(--bg-secondary)',
-                  padding: '4px',
-                  boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.03)'
-                }}>
+            return (
+              <ScrollReveal key={member.id} delay={index * 50}>
+                <div 
+                  className="vintage-polaroid interactive-element"
+                  data-cursor-text="VIEW"
+                  style={{
+                    width: '240px',
+                    backgroundColor: '#F7F3E8', // Aged paper color
+                    padding: '12px 12px 65px 12px', // Polaroid bottom heavy padding
+                    border: '1px solid #E2DEC9',
+                    boxShadow: '0 8px 20px rgba(0,0,0,0.15), inset 0 0 40px rgba(112, 92, 69, 0.05)',
+                    transform: `rotate(${rotate}deg)`,
+                    position: 'relative'
+                  }}
+                >
+                  {/* Faux Tape at the top center */}
                   <div style={{
-                    width: '100%',
-                    height: '100%',
-                    border: '1px dashed var(--border-color)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    backgroundColor: 'var(--bg-primary)'
-                  }}>
+                    position: 'absolute',
+                    top: '-12px',
+                    left: '50%',
+                    transform: 'translateX(-50%) rotate(-2deg)',
+                    width: '60px',
+                    height: '25px',
+                    backgroundColor: 'rgba(232, 225, 206, 0.7)', // masking tape look
+                    boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+                    zIndex: 2
+                  }} />
+
+                  {/* Image Container */}
+                  <div 
+                    className="polaroid-image"
+                    style={{
+                      width: '100%',
+                      height: '240px',
+                      backgroundColor: '#1a1a1a', 
+                      filter: 'sepia(0.6) contrast(1.2) brightness(0.9)', // Vintage photo filter
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      paddingBottom: '20px',
+                      overflow: 'hidden',
+                      transition: 'filter 0.5s ease',
+                      border: '1px solid rgba(0,0,0,0.1)'
+                    }}
+                  >
                     <ArtisticAvatar seedId={member.id} />
                   </div>
-                </div>
 
-                {/* Member Text details */}
-                <div style={{ width: '100%', position: 'relative' }}>
-                  {/* Small decorative line */}
+                  {/* Text Details (Handwritten/Typewriter style) */}
                   <div style={{
-                    width: '30px',
-                    height: '1px',
-                    backgroundColor: 'var(--accent-gold)',
-                    margin: '0 auto 12px auto'
-                  }} />
-                  
-                  <h4 style={{
-                    fontFamily: 'var(--font-editorial)',
-                    fontSize: '1.25rem',
-                    fontWeight: '700',
-                    color: 'var(--text-deep)',
-                    fontStyle: 'italic',
-                    marginBottom: '4px'
+                    position: 'absolute',
+                    bottom: '15px',
+                    left: '0',
+                    width: '100%',
+                    textAlign: 'center',
+                    padding: '0 15px'
                   }}>
-                    {member.name}
-                  </h4>
-                  <p style={{
-                    fontSize: '0.75rem',
-                    color: 'var(--text-muted)',
-                    fontFamily: 'var(--font-sans)',
-                    fontWeight: '600',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em'
-                  }}>
-                    {member.role}
-                  </p>
-                  <span style={{
-                    fontSize: '0.65rem',
-                    color: 'var(--accent-red)',
-                    fontFamily: 'var(--font-display)',
-                    fontWeight: '800',
-                    letterSpacing: '0.1em',
-                    marginTop: '6px',
-                    display: 'inline-block',
-                    padding: '3px 8px',
-                    border: '1px solid rgba(158, 63, 50, 0.2)',
-                    borderRadius: '10px'
-                  }}>
-                    {member.dept}
-                  </span>
+                    <h4 style={{
+                      fontFamily: 'var(--font-editorial)',
+                      fontSize: '1.4rem',
+                      fontWeight: '700',
+                      color: '#2A241D', // Dark brown ink
+                      fontStyle: 'italic',
+                      marginBottom: '2px',
+                      letterSpacing: '0.02em'
+                    }}>
+                      {member.name}
+                    </h4>
+                    <p style={{
+                      fontSize: '0.7rem',
+                      color: '#5C4E3D',
+                      fontFamily: 'var(--font-sans)',
+                      fontWeight: '600',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.15em'
+                    }}>
+                      {member.role}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </ScrollReveal>
-          ))}
+              </ScrollReveal>
+            );
+          })}
         </div>
-
-        {/* View All toggle action button */}
-        <ScrollReveal delay={300}>
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <button
-              onClick={() => setViewAll(!viewAll)}
-              className="btn-editorial btn-editorial-secondary interactive-element"
-              data-cursor-text={viewAll ? "BACK" : "ALL TEAM"}
-              style={{ padding: '12px 30px', fontSize: '0.75rem' }}
-            >
-              {viewAll ? 'Back to Committee Groups' : 'Meet The Team'}
-            </button>
-          </div>
-        </ScrollReveal>
-
       </div>
     </section>
   );

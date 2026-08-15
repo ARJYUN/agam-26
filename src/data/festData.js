@@ -271,7 +271,7 @@ export const teamMembers = [
   {
     id: 2,
     name: 'Dr. Vinod Kumar',
-    role: 'Faculty Coordinator',
+    role: 'Faculty Advisor',
     dept: 'ME Dept',
     group: 'faculty',
     image: 'vinod'
@@ -294,6 +294,14 @@ export const teamMembers = [
   },
   {
     id: 5,
+    name: 'Sarang Nair',
+    role: 'Tech Lead',
+    dept: 'CSE',
+    group: 'tech',
+    image: 'sarang'
+  },
+  {
+    id: 6,
     name: 'Arjun K. S.',
     role: 'Creative Designer',
     dept: 'CSE',
@@ -301,7 +309,7 @@ export const teamMembers = [
     image: 'arjun'
   },
   {
-    id: 6,
+    id: 7,
     name: 'Sandra Mathew',
     role: 'Media Lead',
     dept: 'ECE',
@@ -309,19 +317,11 @@ export const teamMembers = [
     image: 'sandra'
   },
   {
-    id: 7,
+    id: 8,
     name: 'Aditya Varma',
     role: 'General Convener',
     dept: 'ME',
     group: 'management',
     image: 'aditya'
-  },
-  {
-    id: 8,
-    name: 'Sarang Nair',
-    role: 'Tech Lead',
-    dept: 'CSE',
-    group: 'tech',
-    image: 'sarang'
   }
 ];
