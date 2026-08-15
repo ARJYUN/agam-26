@@ -546,7 +546,7 @@ p,
   /* Scale decorative images */
   img[alt="decorative left"],
   img[alt="decorative right"] {
-    width: 140px !important;
+    width: 190px !important;
     opacity: 0.9 !important;
   }
 
