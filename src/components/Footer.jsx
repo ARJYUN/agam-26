@@ -53,7 +53,7 @@ export const Footer = () => {
             </div>
             <div>
               <span style={{ opacity: 0.7 }}>Creative Designer:</span>{' '}
-              <span style={{ color: '#FFFFFF', fontWeight: '600', cursor: 'pointer', transition: 'color 0.3s' }} className="hover-highlight">Arjun K</span>
+              <span style={{ color: '#FFFFFF', fontWeight: '600', cursor: 'pointer', transition: 'color 0.3s' }} className="hover-highlight">Arjun</span>
             </div>
           </div>
 
