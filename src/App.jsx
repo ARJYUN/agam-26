@@ -26,9 +26,8 @@ function App() {
 
   useEffect(() => {
     if (!loading) {
-      // Small extra delay to let preloader finish its own exit animation,
-      // then fully unmount it — content is already rendered underneath
-      const hideTimer = setTimeout(() => setPreloaderVisible(false), 400);
+      // Wait 1250ms for the clip-path circle wipe to complete
+      const hideTimer = setTimeout(() => setPreloaderVisible(false), 1250);
       return () => clearTimeout(hideTimer);
     }
   }, [loading]);
@@ -107,8 +106,8 @@ function App() {
       <Footer onOpenRegisterModal={() => handleOpenRegisterModal()} />
 
       {/* Registration popup and pass voucher */}
-      <RegisterModal 
-        isOpen={isRegisterOpen} 
+      <RegisterModal
+        isOpen={isRegisterOpen}
         onClose={handleCloseRegisterModal}
         initialCategoryId={selectedCat}
         initialEventId={selectedEvt}

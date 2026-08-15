@@ -36,7 +36,7 @@ export const Preloader = ({ loading }) => {
       justifyContent: 'center',
       zIndex: 9999,
       opacity: fadeOut ? 0 : 1,
-      transition: 'opacity 0.4s ease',
+      transition: 'opacity 0.8s ease-in-out',
       pointerEvents: fadeOut ? 'none' : 'all',
       overflow: 'hidden'
     }}>
@@ -66,7 +66,9 @@ export const Preloader = ({ loading }) => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        gap: '15px'
+        gap: '15px',
+        opacity: fadeOut ? 0 : 1,
+        transition: 'opacity 0.8s ease-in-out'
       }}>
         <h1 style={{
           fontFamily: 'var(--font-display)',
@@ -79,7 +81,7 @@ export const Preloader = ({ loading }) => {
         }}>
           AGAM 26
         </h1>
-        
+
         <p style={{
           fontFamily: 'serif',
           fontSize: 'clamp(0.7rem, 2vw, 1rem)',
