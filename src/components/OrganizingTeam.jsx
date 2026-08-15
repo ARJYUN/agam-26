@@ -54,7 +54,7 @@ export const OrganizingTeam = () => {
         paddingBottom: '100px'
       }}
     >
-      {/* Background Theyyam mask sketch on bottom left */}
+      {/* Background Theyyam mask sketch on bottom right */}
       <div style={{
         position: 'absolute',
         bottom: '20px',
@@ -62,8 +62,8 @@ export const OrganizingTeam = () => {
         zIndex: 10,
         pointerEvents: 'none'
       }}>
-        <img src="/17.png" alt="decorative left" style={{ 
-          width: '260px', 
+        <img src="/17.png" alt="decorative right" style={{ 
+          width: '180px', 
           opacity: 0.7,
           marginRight: '20px'
         }} />
@@ -76,12 +76,16 @@ export const OrganizingTeam = () => {
           <div style={{ marginBottom: '60px' }}>
             <h2 style={{ 
               fontFamily: 'var(--font-malayalam)', 
-              fontSize: 'clamp(3.5rem, 10vw, 4.5rem)', 
+              fontSize: 'clamp(4.5rem, 12vw, 5.5rem)', 
               fontWeight: '900',
               color: 'var(--accent-gold)',
-              letterSpacing: '0',
-              marginBottom: '10px',
-              lineHeight: '1.2'
+              letterSpacing: '-0.02em',
+              marginBottom: '15px',
+              lineHeight: '1.1',
+              display: 'inline-block',
+              transform: 'scaleY(1.2)',
+              transformOrigin: 'bottom left',
+              WebkitTextStroke: '1.5px var(--accent-gold)'
             }}>
               സംഘാടകർ
             </h2>
