@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-export const ScrollReveal = ({ children, delay = 0, className = '' }) => {
+export const ScrollReveal = ({ children, delay = 150, className = '' }) => {
   const [isRevealed, setIsRevealed] = useState(false);
   const domRef = useRef(null);
 
@@ -22,7 +22,7 @@ export const ScrollReveal = ({ children, delay = 0, className = '' }) => {
         });
       },
       {
-        threshold: 0.08, // Trigger when at least 8% of the element is visible
+        threshold: 0.15, // Trigger when at least 15% of the element is visible (slightly later than before)
       }
     );
 

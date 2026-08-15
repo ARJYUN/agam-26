@@ -348,7 +348,7 @@ p,
 .reveal-on-scroll {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 1.2s var(--ease-editorial), transform 1.2s var(--ease-editorial);
+  transition: opacity 1.4s var(--ease-editorial), transform 1.4s var(--ease-editorial);
 }
 
 .reveal-on-scroll.revealed {
