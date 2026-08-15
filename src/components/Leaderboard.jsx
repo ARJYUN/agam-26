@@ -50,7 +50,7 @@ export const Leaderboard = () => {
         position: 'absolute',
         bottom: '20px',
         left: '10px',
-        zIndex: 100,
+        zIndex: 10,
         pointerEvents: 'none'
       }}>
         <img src="/12.png" alt="decorative right" style={{ width: '280px', opacity: 0.8 }} />

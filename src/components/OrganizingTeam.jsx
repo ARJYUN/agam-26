@@ -76,11 +76,12 @@ export const OrganizingTeam = () => {
           <div style={{ marginBottom: '60px' }}>
             <h2 style={{ 
               fontFamily: 'var(--font-malayalam)', 
-              fontSize: 'clamp(2.5rem, 6vw, 4rem)', 
+              fontSize: 'clamp(3.5rem, 10vw, 4.5rem)', 
               fontWeight: '900',
               color: 'var(--accent-gold)',
-              letterSpacing: '0.05em',
-              marginBottom: '10px'
+              letterSpacing: '0',
+              marginBottom: '10px',
+              lineHeight: '1.2'
             }}>
               സംഘാടകർ
             </h2>

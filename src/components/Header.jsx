@@ -261,56 +261,105 @@ export const Header = ({ onOpenRegisterModal }) => {
           {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
 
-        {/* Mobile dropdown */}
+        {/* Mobile Full Screen Menu */}
         {mobileMenuOpen && (
           <div style={{
             position: 'fixed',
-            top: '65px',
+            top: 0,
             left: 0,
-            right: 0,
+            width: '100vw',
+            height: '100vh',
             backgroundColor: 'var(--bg-primary)',
-            borderBottom: '1px solid var(--border-color)',
-            padding: '24px 5%',
+            zIndex: 9999,
             display: 'flex',
             flexDirection: 'column',
-            gap: '20px',
-            boxShadow: '0 8px 16px rgba(0,0,0,0.05)',
-            zIndex: 99
+            overflow: 'hidden'
           }}>
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: '0.85rem',
-                  fontWeight: '700',
-                  letterSpacing: '0.15em',
-                  textTransform: 'uppercase',
-                  color: 'var(--text-deep)',
-                  textDecoration: 'none'
-                }}
-              >
-                {link.label}
-              </a>
-            ))}
-            
+            {/* Close Button */}
             <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenRegisterModal();
-              }}
+              onClick={() => setMobileMenuOpen(false)}
               style={{
-                padding: '12px 24px',
-                fontSize: '0.75rem',
-                width: '100%',
-                borderRadius: '4px'
+                position: 'absolute',
+                top: '20px',
+                right: '25px',
+                background: 'none',
+                border: 'none',
+                color: 'var(--text-deep)',
+                cursor: 'pointer',
+                zIndex: 10,
+                padding: '10px'
               }}
-              className="btn-editorial btn-editorial-primary"
             >
-              Register Pass
+              <X size={32} />
             </button>
+
+            {/* Navigation Links */}
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '25px',
+              alignItems: 'center',
+              paddingTop: '100px',
+              zIndex: 1
+            }}>
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '1.25rem',
+                    fontWeight: '800',
+                    letterSpacing: '0.15em',
+                    textTransform: 'uppercase',
+                    color: 'var(--text-deep)',
+                    textDecoration: 'none'
+                  }}
+                >
+                  {link.label}
+                </a>
+              ))}
+              
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenRegisterModal();
+                }}
+                style={{
+                  marginTop: '15px',
+                  padding: '12px 35px',
+                  fontSize: '0.85rem',
+                  borderRadius: '4px',
+                  boxShadow: '0 8px 20px rgba(0,0,0,0.1)'
+                }}
+                className="btn-editorial btn-editorial-primary"
+              >
+                Register Pass
+              </button>
+            </div>
+
+            {/* Image in vacant space below */}
+            <div style={{
+              flex: 1,
+              width: '100%',
+              display: 'flex',
+              alignItems: 'flex-end',
+              justifyContent: 'center',
+              marginTop: '40px',
+              opacity: 0.85
+            }}>
+              <img 
+                src="/menu.png" 
+                alt="Decorative menu art" 
+                style={{ 
+                  width: '100%', 
+                  maxHeight: '100%', 
+                  objectFit: 'contain',
+                  objectPosition: 'bottom'
+                }} 
+              />
+            </div>
           </div>
         )}
         

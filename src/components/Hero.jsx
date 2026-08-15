@@ -1,6 +1,6 @@
 import React from 'react';
 import { FloatingCorner } from './FloatingCorner';
-import { GoldFloralSketch } from './Sketches';
+
 import { ScrollReveal } from './ScrollReveal';
 import { ArrowDown } from 'lucide-react';
 
@@ -105,10 +105,7 @@ export const Hero = () => {
         overflow: 'hidden'
       }}
     >
-      {/* Corner Ornaments */}
-      <FloatingCorner position="top-right" speed="slow" factor={0.015}>
-        <GoldFloralSketch size={140} />
-      </FloatingCorner>
+
 
       {/* Main Grid Content */}
       <div className="hero-content-wrapper" style={{ maxWidth: '1250px', margin: '0 auto', width: '100%', padding: '0 20px', flexGrow: 1, display: 'flex', alignItems: 'center' }}>
