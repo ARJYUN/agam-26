@@ -469,8 +469,8 @@ export const Leaderboard = () => {
                     }}>
                       {deptRow.rank}
                     </span>
-                    <span style={{ fontFamily: 'var(--font-sans)', fontWeight: '600', fontSize: 'clamp(0.9rem, 3.5vw, 1.1rem)', color: 'var(--text-deep)' }}>
-                      {deptRow.name} <span style={{ opacity: 0.5, fontSize: 'clamp(0.7rem, 2.5vw, 0.9rem)', fontWeight: 'normal' }}>({deptRow.dept})</span>
+                    <span style={{ fontFamily: 'var(--font-sans)', fontWeight: '600', fontSize: 'clamp(0.75rem, 2.5vw, 1.1rem)', color: 'var(--text-deep)' }}>
+                      {deptRow.name} <span style={{ opacity: 0.5, fontSize: 'clamp(0.6rem, 2vw, 0.9rem)', fontWeight: 'normal' }}>({deptRow.dept})</span>
                     </span>
                   </div>
                   <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 'bold', color: 'var(--accent-red)', fontSize: 'clamp(0.9rem, 4vw, 1.2rem)', whiteSpace: 'nowrap' }}>
