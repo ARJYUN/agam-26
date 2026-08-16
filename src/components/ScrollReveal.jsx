@@ -42,7 +42,6 @@ export const ScrollReveal = ({ children, delay = 150, className = '' }) => {
     <div
       ref={domRef}
       className={`reveal-on-scroll ${isRevealed ? 'revealed' : ''} ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
     </div>

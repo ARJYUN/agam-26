@@ -184,16 +184,20 @@ export const Hero = () => {
             {/* Brand Logo & Subtext */}
             <ScrollReveal delay={200}>
               <h1 style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(3.5rem, 8vw, 6.2rem)',
+                fontFamily: 'var(--font-malayalam)',
+                fontSize: 'clamp(4.5rem, 10vw, 8rem)',
                 fontWeight: '900',
-                textTransform: 'uppercase',
                 lineHeight: '0.85',
                 color: 'var(--text-deep)',
                 letterSpacing: '-0.02em',
-                margin: '0'
+                margin: '0',
+                display: 'inline-block',
+                transform: 'scaleY(1.25)',
+                transformOrigin: 'bottom left',
+                WebkitTextStroke: '2px var(--text-deep)',
+                textShadow: '0 10px 30px rgba(0,0,0,0.1)'
               }}>
-                AGAM
+                അകം 
               </h1>
             </ScrollReveal>
 
