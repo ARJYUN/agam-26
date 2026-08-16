@@ -197,7 +197,7 @@ export const Hero = () => {
                 WebkitTextStroke: '2px var(--text-deep)',
                 textShadow: '0 10px 30px rgba(0,0,0,0.1)'
               }}>
-                അകം 
+                അകം
               </h1>
             </ScrollReveal>
 

@@ -73,13 +73,14 @@ export const Header = ({ onOpenRegisterModal }) => {
       left: 0,
       right: 0,
       zIndex: 100,
-      backgroundColor: isScrolled ? `rgba(248, 244, 232, ${bgOpacity})` : 'transparent',
-      backdropFilter: isScrolled ? 'blur(8px)' : 'none',
-      borderBottom: isScrolled ? '1px solid var(--border-color)' : '1px solid transparent',
-      transition: 'all 0.4s var(--ease-editorial), background-color 0.5s ease',
+      backgroundColor: isScrolled ? 'rgba(248, 244, 232, 0.1)' : 'transparent',
+      backdropFilter: isScrolled ? 'blur(16px)' : 'none',
+      WebkitBackdropFilter: isScrolled ? 'blur(16px)' : 'none',
+      borderBottom: isScrolled ? '1px solid rgba(0,0,0,0.05)' : '1px solid transparent',
+      transition: 'all 0.4s var(--ease-editorial)',
       padding: isScrolled ? '12px 5%' : '20px 5%'
     }}
-    onMouseEnter={() => { setIsHovered(true); setBgOpacity(0.92); }}
+    onMouseEnter={() => setIsHovered(true)}
     onMouseLeave={() => setIsHovered(false)}
     >
       <div style={{

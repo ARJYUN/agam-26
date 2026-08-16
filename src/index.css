@@ -53,19 +53,16 @@ html {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
   width: 100%;
 }
 
 body {
-  overflow-x: hidden;
   background-color: var(--bg-primary);
   position: relative;
   width: 100%;
 }
 
 #root, .app-container {
-  overflow-x: hidden;
   width: 100%;
   position: relative;
 }
@@ -147,6 +144,16 @@ p,
 .section-wrapper {
   position: relative;
   padding: 120px 8% 100px 8%;
+  background-color: var(--bg-primary); /* Ensure solid background for parallax */
+}
+
+/* Stacking Parallax Sections */
+.parallax-section {
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-primary);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 @media (max-width: 768px) {

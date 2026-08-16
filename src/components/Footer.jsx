@@ -22,28 +22,28 @@ export const Footer = () => {
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           {/* Logo */}
           <div style={{ marginBottom: '15px' }}>
-            <img 
-              src="/LOG.png" 
-              alt="AGAM Logo" 
-              style={{ 
-                height: '90px', 
+            <img
+              src="/LOG.png"
+              alt="AGAM Logo"
+              style={{
+                height: '90px',
                 width: 'auto',
                 // If LOG.png is white, we might need filter: 'invert(1)' 
                 // But for now, just a subtle dark drop shadow on a light bg
                 filter: 'drop-shadow(0px 4px 8px rgba(0,0,0,0.08))'
-              }} 
+              }}
             />
           </div>
-          
+
           {/* Subtle top divider */}
           <div style={{ width: '80px', height: '1px', backgroundColor: 'rgba(248, 244, 232, 0.2)', marginBottom: '15px' }} />
-          
+
           {/* Credits */}
-          <div style={{ 
-            display: 'flex', 
-            flexDirection: 'column', 
-            alignItems: 'center', 
-            gap: '12px', 
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '12px',
             fontSize: '0.75rem',
             letterSpacing: '0.05em'
           }}>
@@ -68,7 +68,8 @@ export const Footer = () => {
       </ScrollReveal>
 
       {/* Basic hover style for the names */}
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .hover-highlight:hover {
           color: var(--accent-red) !important;
         }

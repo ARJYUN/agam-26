@@ -81,32 +81,47 @@ function App() {
 
       {currentPage === 'home' ? (
         <>
-          {/* Main Sections */}
-          <main>
+          <main style={{ position: 'relative', zIndex: 2, backgroundColor: 'var(--bg-primary)', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}>
             {/* Hero entry section with Theyyam image & parallax */}
-            <Hero onOpenRegisterModal={handleOpenRegisterModal} />
+            <div className="parallax-section" style={{ zIndex: 1 }}>
+              <Hero onOpenRegisterModal={handleOpenRegisterModal} />
+            </div>
 
             {/* Countdown to fest start */}
-            <Countdown onOpenRegisterModal={handleOpenRegisterModal} />
+            <div className="parallax-section" style={{ zIndex: 2 }}>
+              <Countdown onOpenRegisterModal={handleOpenRegisterModal} />
+            </div>
 
             {/* Categories and Event registration details */}
-            <EventRegistration onOpenRegisterModal={handleOpenRegisterModal} />
+            <div className="parallax-section" style={{ zIndex: 3 }}>
+              <EventRegistration onOpenRegisterModal={handleOpenRegisterModal} />
+            </div>
 
             {/* Infinite Marquee Divider */}
-            <MarqueeDivider />
+            <div className="parallax-section" style={{ zIndex: 4 }}>
+              <MarqueeDivider />
+            </div>
 
             {/* Expandable Department standings */}
-            <Leaderboard />
+            <div className="parallax-section" style={{ zIndex: 5 }}>
+              <Leaderboard />
+            </div>
 
             {/* Infinite Marquee Divider */}
-            <MarqueeDivider />
+            <div className="parallax-section" style={{ zIndex: 6 }}>
+              <MarqueeDivider />
+            </div>
 
             {/* Organizing committee grid with custom vector avatars */}
-            <OrganizingTeam />
+            <div className="parallax-section" style={{ zIndex: 7 }}>
+              <OrganizingTeam />
+            </div>
           </main>
         </>
       ) : (
-        <AllEventsPage onOpenRegisterModal={handleOpenRegisterModal} />
+        <main style={{ position: 'relative', zIndex: 2, backgroundColor: 'var(--bg-primary)', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}>
+          <AllEventsPage onOpenRegisterModal={handleOpenRegisterModal} />
+        </main>
       )}
 
       {/* Footer closing page */}
