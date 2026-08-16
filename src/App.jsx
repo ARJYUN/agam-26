@@ -10,6 +10,7 @@ import { AllEventsPage } from './components/AllEventsPage';
 import { RegisterModal } from './components/RegisterModal';
 import { Preloader } from './components/Preloader';
 import { MarqueeDivider } from './components/MarqueeDivider';
+import { Schedule } from './components/Schedule';
 
 function App() {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
@@ -91,6 +92,9 @@ function App() {
             <div style={{ position: 'relative', zIndex: 2, backgroundColor: 'var(--bg-primary)' }}>
               {/* Countdown to fest start */}
               <Countdown onOpenRegisterModal={handleOpenRegisterModal} />
+
+            {/* Event Schedule */}
+            <Schedule />
 
             {/* Categories and Event registration details */}
             <EventRegistration onOpenRegisterModal={handleOpenRegisterModal} />
