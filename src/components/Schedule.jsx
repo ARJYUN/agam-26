@@ -1,6 +1,26 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 export const Schedule = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 } // Trigger when 20% visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const scheduleData = [
     { time: '09:30 AM', event: 'Fest Inauguration & Theyyam' },
     { time: '10:30 AM', event: 'Canvas of Dreams: Live Art' },
@@ -14,11 +34,11 @@ export const Schedule = () => {
   ];
 
   return (
-    <section className="schedule-section">
+    <section className="schedule-section" ref={sectionRef}>
       <div className="schedule-overlay">
         <div className="schedule-content">
           <h2 className="schedule-title">SCHEDULE</h2>
-
+          
           <div className="schedule-divider">
             <div className="schedule-divider-line"></div>
             <svg className="schedule-star" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +47,7 @@ export const Schedule = () => {
             <div className="schedule-divider-line"></div>
           </div>
 
-          <div className="timeline-container">
+          <div className={`timeline-container ${isVisible ? 'is-visible' : ''}`}>
             {/* The continuous flowing line down the center */}
             <div className="continuous-flow-line"></div>
 
@@ -130,10 +150,13 @@ export const Schedule = () => {
           left: 50%;
           width: 2px;
           background-color: currentColor;
-          transform: translateX(-50%);
+          transform: translateX(-50%) scaleY(0);
           transform-origin: top;
           z-index: 1;
           opacity: 0.3;
+        }
+        
+        .is-visible .continuous-flow-line {
           animation: flowDown 3.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
 
@@ -158,6 +181,10 @@ export const Schedule = () => {
         .timeline-time, .timeline-event {
           opacity: 0;
           transform: translateY(10px);
+        }
+        
+        .is-visible .timeline-time, 
+        .is-visible .timeline-event {
           animation: fadeUpText 0.5s ease forwards;
         }
 
@@ -198,6 +225,9 @@ export const Schedule = () => {
           /* Pop animation */
           opacity: 0;
           transform: scale(0);
+        }
+        
+        .is-visible .timeline-dot {
           animation: popDot 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
 
