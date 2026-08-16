@@ -126,7 +126,7 @@ export const OrganizingTeam = () => {
             }
             
             /* Mobile 2-column grid scaling */
-            @media (max-width: 768px) {
+            @media (max-width: 1024px) {
               .vintage-team-grid {
                 grid-template-columns: repeat(2, 1fr) !important;
                 gap: 30px 10px !important;

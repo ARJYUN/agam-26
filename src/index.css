@@ -520,7 +520,7 @@ p,
 /* =====================
    Mobile Responsive Adjustments
    ===================== */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
 
   /* Section paddings */
   .section-wrapper {
@@ -654,4 +654,22 @@ p,
 
 .marquee-content:hover {
   animation-play-state: paused;
+}
+
+/* =====================
+   Landscape Mobile / Tablet Overrides
+   ===================== */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .hero-left-editorial {
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+  .hero-quote-block {
+    text-align: left !important;
+    margin-top: 0 !important;
+  }
+  /* Restore original desktop-like order for landscape */
+  .hero-quote-block { order: 1 !important; }
+  .hero-agam-block { order: 2 !important; }
+  .hero-tagline-block { order: 3 !important; }
 }

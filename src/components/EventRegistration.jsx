@@ -69,7 +69,7 @@ export const EventRegistration = ({ onOpenRegisterModal }) => {
                 gap: 24px !important;
               }
             }
-            @media (min-width: 1024px) {
+            @media (min-width: 1100px) {
               .events-grid-layout {
                 grid-template-columns: repeat(6, 1fr) !important;
                 gap: 15px !important;

@@ -128,7 +128,7 @@ export const Hero = () => {
                 background-image: url('/herom.png') !important;
               }
             }
-            @media (min-width: 992px) {
+            @media (min-width: 1025px), (max-width: 1024px) and (orientation: landscape) {
               .hero-flex-layout {
                 flex-direction: row !important;
                 justify-content: space-between !important;
