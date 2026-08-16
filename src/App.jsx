@@ -83,38 +83,29 @@ function App() {
         <>
           <main style={{ position: 'relative', zIndex: 2, backgroundColor: 'var(--bg-primary)', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}>
             {/* Hero entry section with Theyyam image & parallax */}
-            <div className="parallax-section" style={{ zIndex: 1 }}>
+            <div style={{ position: 'sticky', top: 0, zIndex: 1, height: '100vh' }}>
               <Hero onOpenRegisterModal={handleOpenRegisterModal} />
             </div>
 
-            {/* Countdown to fest start */}
-            <div className="parallax-section" style={{ zIndex: 2 }}>
+            {/* Rest of the site scrolls over the Hero */}
+            <div style={{ position: 'relative', zIndex: 2, backgroundColor: 'var(--bg-primary)' }}>
+              {/* Countdown to fest start */}
               <Countdown onOpenRegisterModal={handleOpenRegisterModal} />
-            </div>
 
             {/* Categories and Event registration details */}
-            <div className="parallax-section" style={{ zIndex: 3 }}>
-              <EventRegistration onOpenRegisterModal={handleOpenRegisterModal} />
-            </div>
+            <EventRegistration onOpenRegisterModal={handleOpenRegisterModal} />
 
             {/* Infinite Marquee Divider */}
-            <div className="parallax-section" style={{ zIndex: 4 }}>
-              <MarqueeDivider />
-            </div>
+            <MarqueeDivider />
 
             {/* Expandable Department standings */}
-            <div className="parallax-section" style={{ zIndex: 5 }}>
-              <Leaderboard />
-            </div>
+            <Leaderboard />
 
             {/* Infinite Marquee Divider */}
-            <div className="parallax-section" style={{ zIndex: 6 }}>
-              <MarqueeDivider />
-            </div>
+            <MarqueeDivider />
 
             {/* Organizing committee grid with custom vector avatars */}
-            <div className="parallax-section" style={{ zIndex: 7 }}>
-              <OrganizingTeam />
+            <OrganizingTeam />
             </div>
           </main>
         </>

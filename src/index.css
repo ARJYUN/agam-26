@@ -150,7 +150,7 @@ p,
 /* Stacking Parallax Sections */
 .parallax-section {
   position: sticky;
-  top: 0;
+  bottom: 0;
   background-color: var(--bg-primary);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   border-bottom: 1px solid rgba(0,0,0,0.05);
