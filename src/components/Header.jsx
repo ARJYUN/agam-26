@@ -125,7 +125,7 @@ export const Header = ({ onOpenRegisterModal }) => {
             fontWeight: '700',
             marginTop: '2px'
           }}>
-            2026-27 &bull; CULTURAL FEST
+            SEP 17–20, 2026 &bull; CULTURAL FEST
           </span>
         </a>
 

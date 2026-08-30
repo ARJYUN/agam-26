@@ -214,6 +214,18 @@ export const Hero = () => {
               }}>
                 Where Art Meets Soul
               </span>
+              <span style={{
+                fontFamily: 'var(--font-sans)',
+                fontSize: 'clamp(0.75rem, 1.5vw, 0.9rem)',
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                fontWeight: '800',
+                color: 'var(--accent-red)',
+                marginTop: '6px',
+                display: 'block'
+              }}>
+                SEP 17 &bull; 18 &bull; 19 &bull; 20, 2026
+              </span>
             </ScrollReveal>
 
             {/* Central divider motif */}

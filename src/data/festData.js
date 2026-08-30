@@ -12,7 +12,7 @@ export const eventCategories = [
         desc: 'Single actor playing multiple characters in a dramatic narrative.',
         prize: '₹10,000',
         fee: '₹200',
-        time: 'Day 1, 12:00 PM',
+        time: 'Day 1 (Sep 17), 12:00 PM',
         venue: 'Stage 3 (Sruthi)',
         rules: ['Solo performance.', 'Duration: 5-7 minutes.', 'Evaluated on voice modulation and expressions.']
       },
@@ -22,7 +22,7 @@ export const eventCategories = [
         desc: 'Socially relevant street performances addressing college life or heritage.',
         prize: '₹25,000',
         fee: '₹500',
-        time: 'Day 2, 03:00 PM',
+        time: 'Day 2 (Sep 18), 03:00 PM',
         venue: 'Open Air Theatre (OAT)',
         rules: ['Group size: 8-15 members.', 'Duration: 15-20 minutes.', 'No electronic amplification.']
       }
@@ -36,24 +36,24 @@ export const eventCategories = [
     icon: 'veena',
     events: [
       {
-        id: 'battle-bands',
-        title: 'Battle of the Bands',
-        desc: 'The ultimate rock and fusion face-off. Own the soundscape.',
-        prize: '₹40,000',
-        fee: '₹1,000',
-        time: 'Day 2, 06:00 PM',
-        venue: 'Open Air Theatre (OAT)',
-        rules: ['Band size: 4-8 members.', 'Time: 15 mins (inc. setup).', 'One fusion piece recommended.']
-      },
-      {
         id: 'sopana-vocals',
         title: 'Classical Solo (Vocal)',
         desc: 'Solo Carnatic or Hindustani vocal performances reflecting classical ragas.',
         prize: '₹12,000',
         fee: '₹200',
-        time: 'Day 1, 11:00 AM',
+        time: 'Day 1 (Sep 17), 11:00 AM',
         venue: 'Stage 3 (Sruthi)',
         rules: ['Solo singing.', 'Duration: 8-10 minutes.', 'No film songs allowed.']
+      },
+      {
+        id: 'battle-bands',
+        title: 'Battle of the Bands',
+        desc: 'The ultimate rock and fusion face-off. Own the soundscape.',
+        prize: '₹40,000',
+        fee: '₹1,000',
+        time: 'Day 3 (Sep 19), 06:00 PM',
+        venue: 'Open Air Theatre (OAT)',
+        rules: ['Band size: 4-8 members.', 'Time: 15 mins (inc. setup).', 'One fusion piece recommended.']
       }
     ]
   },
@@ -70,7 +70,7 @@ export const eventCategories = [
         desc: 'Sketching traditional Kerala mural motifs using modern colors.',
         prize: '₹12,000',
         fee: '₹150',
-        time: 'Day 1, 10:00 AM',
+        time: 'Day 1 (Sep 17), 10:00 AM',
         venue: 'Art Center (Chithra)',
         rules: ['Individual event.', 'Duration: 3 hours.', 'Bring your own colors/brushes.']
       },
@@ -80,7 +80,7 @@ export const eventCategories = [
         desc: 'Mould clay into expressive, organic structures representing heritage.',
         prize: '₹15,000',
         fee: '₹200',
-        time: 'Day 2, 02:00 PM',
+        time: 'Day 2 (Sep 18), 01:30 PM',
         venue: 'Art Courtyard',
         rules: ['Max 2 members per team.', 'Duration: 2.5 hours.', 'Clay will be provided.']
       }
@@ -99,7 +99,7 @@ export const eventCategories = [
         desc: 'Weave words into engaging stories or poems on a spot theme.',
         prize: '₹8,000',
         fee: '₹100',
-        time: 'Day 1, 01:30 PM',
+        time: 'Day 1 (Sep 17), 01:30 PM',
         venue: 'Seminar Hall',
         rules: ['Individual event.', 'Duration: 1.5 hours.', 'Word limit: 1000 words.']
       },
@@ -109,7 +109,7 @@ export const eventCategories = [
         desc: 'Express opinions cogently on contemporary social/cultural topics.',
         prize: '₹10,000',
         fee: '₹150',
-        time: 'Day 2, 11:00 AM',
+        time: 'Day 2 (Sep 18), 11:00 AM',
         venue: 'Library Hall',
         rules: ['Individual speech.', 'Duration: 5 minutes.', 'Language: Malayalam or English.']
       }
@@ -128,7 +128,7 @@ export const eventCategories = [
         desc: 'Capture the essence of AGAM on your lens. Theme announced on Day 1.',
         prize: '₹15,000',
         fee: '₹200',
-        time: 'Full Fest',
+        time: 'Full Fest (Sep 17–20)',
         venue: 'Campus-wide',
         rules: ['Individual submission.', 'Photos must be taken on campus.', 'No major editing/filters allowed.']
       },
@@ -138,7 +138,7 @@ export const eventCategories = [
         desc: 'Create a compelling short narrative reflecting student culture or tradition.',
         prize: '₹25,000',
         fee: '₹400',
-        time: 'Submission by Day 3',
+        time: 'Submission by Day 4 (Sep 20)',
         venue: 'Online upload',
         rules: ['Group size: Up to 6 members.', 'Duration: 3-5 minutes.', 'Must include English subtitles.']
       }
@@ -157,7 +157,7 @@ export const eventCategories = [
         desc: 'Traditional group folk styles of Kerala, including Thiruvathira or Oppana.',
         prize: '₹25,000',
         fee: '₹500',
-        time: 'Day 1, 02:00 PM',
+        time: 'Day 1 (Sep 17), 02:00 PM',
         venue: 'Main Stage (Keli)',
         rules: ['Group must consist of 6-12 members.', 'Duration: 8-10 minutes.', 'Only folk styles allowed.']
       },
@@ -167,7 +167,7 @@ export const eventCategories = [
         desc: 'Performances in Mohiniyattam, Bharatanatyam, or Kuchipudi.',
         prize: '₹15,000',
         fee: '₹300',
-        time: 'Day 2, 10:00 AM',
+        time: 'Day 3 (Sep 19), 10:00 AM',
         venue: 'Stage 2 (Mudra)',
         rules: ['Solo performance.', 'Duration: 12-15 minutes.', 'Evaluated on expressions and posture.']
       }
