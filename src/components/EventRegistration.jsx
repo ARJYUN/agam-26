@@ -161,7 +161,7 @@ export const EventRegistration = ({ onOpenRegisterModal }) => {
 
                 {/* Explore button */}
                 <button 
-                  onClick={() => setSelectedCategory(category)}
+                  onClick={() => setSelectedCategory(selectedCategory?.id === category.id ? null : category)}
                   style={{
                     background: 'none',
                     border: '1px solid var(--border-color-dark)',
@@ -170,11 +170,14 @@ export const EventRegistration = ({ onOpenRegisterModal }) => {
                     fontWeight: '700',
                     color: 'var(--text-deep)',
                     cursor: 'pointer',
-                    padding: '6px 16px',
+                    padding: selectedCategory?.id === category.id ? '6px 10px' : '6px 16px',
                     textTransform: 'uppercase',
                     letterSpacing: '0.12em',
                     borderRadius: '2px',
-                    transition: 'all 0.3s'
+                    transition: 'all 0.3s',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = 'var(--accent-red)';
@@ -187,9 +190,9 @@ export const EventRegistration = ({ onOpenRegisterModal }) => {
                     e.currentTarget.style.borderColor = 'var(--border-color-dark)';
                   }}
                   className="interactive-element"
-                  data-cursor-text="VIEW"
+                  data-cursor-text={selectedCategory?.id === category.id ? "CANCEL" : "VIEW"}
                 >
-                  Explore
+                  {selectedCategory?.id === category.id ? <X size={14} /> : 'Explore'}
                 </button>
               </div>
             </ScrollReveal>
@@ -241,28 +244,18 @@ export const EventRegistration = ({ onOpenRegisterModal }) => {
         <div style={{
           position: 'fixed',
           top: 0,
-          left: 0,
+          right: 0,
           width: '100%',
+          maxWidth: '600px',
           height: '100%',
-          backgroundColor: 'rgba(37, 32, 26, 0.4)',
-          backdropFilter: 'blur(3px)',
-          zIndex: 1000,
+          backgroundColor: 'var(--bg-primary)',
+          boxShadow: '-10px 0 30px rgba(0, 0, 0, 0.15)',
           display: 'flex',
-          justifyContent: 'flex-end',
-          animation: 'fadeIn 0.3s ease-out'
+          flexDirection: 'column',
+          zIndex: 1000,
+          animation: 'slideInRight 0.4s cubic-bezier(0.25, 1, 0.5, 1)',
+          overflow: 'hidden'
         }}>
-          <div style={{
-            width: '100%',
-            maxWidth: '600px',
-            height: '100%',
-            backgroundColor: 'var(--bg-primary)',
-            boxShadow: '-10px 0 30px rgba(0, 0, 0, 0.15)',
-            display: 'flex',
-            flexDirection: 'column',
-            position: 'relative',
-            animation: 'slideInRight 0.4s cubic-bezier(0.25, 1, 0.5, 1)',
-            overflow: 'hidden'
-          }}>
             <style dangerouslySetInnerHTML={{__html: `
               @keyframes slideInRight {
                 from { transform: translateX(100%); }
@@ -407,7 +400,6 @@ export const EventRegistration = ({ onOpenRegisterModal }) => {
               ))}
             </div>
           </div>
-        </div>
       )}
     </section>
   );
