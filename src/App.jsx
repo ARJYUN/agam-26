@@ -78,7 +78,7 @@ function App() {
       <div className="paper-texture" />
 
       {/* Navigation Header */}
-      <Header onOpenRegisterModal={() => handleOpenRegisterModal()} />
+      <Header onOpenVolunteerModal={() => handleOpenRegisterModal()} />
 
       {currentPage === 'home' ? (
         <>

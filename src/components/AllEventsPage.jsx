@@ -376,31 +376,6 @@ export const AllEventsPage = ({ onOpenRegisterModal }) => {
                         </span>
                       </div>
                     </div>
-
-                    {/* CTA Register Button */}
-                    <button 
-                      onClick={() => onOpenRegisterModal(event.categoryId, event.id)}
-                      style={{
-                        width: '100%',
-                        backgroundColor: 'var(--accent-red)',
-                        color: 'var(--bg-primary)',
-                        border: 'none',
-                        padding: '12px',
-                        fontFamily: 'var(--font-display)',
-                        fontSize: '0.75rem',
-                        fontWeight: '700',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.1em',
-                        borderRadius: '2px',
-                        cursor: 'pointer',
-                        transition: 'background-color 0.3s'
-                      }}
-                      className="interactive-element"
-                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--text-deep)'}
-                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--accent-red)'}
-                    >
-                      Register for Event &rarr;
-                    </button>
                   </div>
                 </div>
               </ScrollReveal>

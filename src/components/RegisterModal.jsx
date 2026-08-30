@@ -1,59 +1,79 @@
 import React, { useState, useEffect } from 'react';
-import { X, Award, User, Mail, GraduationCap, FileText, CheckCircle, Ticket, Copy } from 'lucide-react';
+import { X, Award, User, Mail, GraduationCap, Phone, CheckCircle, Ticket, Copy } from 'lucide-react';
 import { eventCategories } from '../data/festData';
 
 export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initialEventId = '' }) => {
   const [form, setForm] = useState({
     name: '',
     email: '',
-    rollNo: '',
+    phone: '',
     dept: 'CS',
     category: '',
     event: ''
   });
   
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [ticketId, setTicketId] = useState('');
   const [copied, setCopied] = useState(false);
 
   // Set initial selections if passed from other sections
   useEffect(() => {
     if (isOpen) {
-      setForm(prev => ({
-        ...prev,
-        category: initialCategoryId || eventCategories[0]?.id || '',
-        event: initialEventId || (initialCategoryId 
-          ? eventCategories.find(c => c.id === initialCategoryId)?.events[0]?.id 
-          : eventCategories[0]?.events[0]?.id) || ''
-      }));
+      setForm({
+        name: '',
+        email: '',
+        phone: '',
+        dept: 'CS',
+        category: '',
+        event: ''
+      });
       setIsSubmitted(false);
+      setIsSubmitting(false);
       setCopied(false);
     }
-  }, [isOpen, initialCategoryId, initialEventId]);
+  }, [isOpen]);
 
-  // Update selected event options when category changes
-  const handleCategoryChange = (catId) => {
-    const selectedCat = eventCategories.find(c => c.id === catId);
-    setForm(prev => ({
-      ...prev,
-      category: catId,
-      event: selectedCat?.events[0]?.id || ''
-    }));
-  };
-
-  const selectedCategoryEvents = eventCategories.find(c => c.id === form.category)?.events || [];
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.rollNo) {
+    if (!form.name || !form.email || !form.phone) {
       alert('Please fill out all required fields.');
       return;
     }
     
-    // Generate an elegant, unique classical ticket ID
+    // Generate an elegant, unique classical volunteer ID
     const randomNum = Math.floor(1000 + Math.random() * 9000);
-    setTicketId(`AGAM-26-${form.dept}-${randomNum}`);
-    setIsSubmitted(true);
+    const newId = `AGAM-VOL-${form.dept}-${randomNum}`;
+    setTicketId(newId);
+    setIsSubmitting(true);
+
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbxjNVcs8bTo7Ir8D3DvgW0wWHYwtc4IrHJ9yZXSxm5WeG8y5Uepsplzfxst_DU9PrWKDw/exec';
+
+    try {
+      const formData = new URLSearchParams();
+      formData.append('name', form.name);
+      formData.append('email', form.email);
+      formData.append('phone', form.phone);
+      formData.append('rollNo', form.phone);
+      formData.append('whatsapp', form.phone);
+      formData.append('dept', form.dept);
+      formData.append('volunteerId', newId);
+
+      // Send data to Google Apps Script webhook using URL-encoded form data
+      await fetch(scriptUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formData.toString()
+      });
+    } catch (err) {
+      console.error('Error submitting to Google Sheet:', err);
+    } finally {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }
   };
 
   const handleCopyTicket = () => {
@@ -157,7 +177,7 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
                 textTransform: 'uppercase',
                 fontWeight: '700'
               }}>
-                Entry Pass
+                Join Team AGAM '26
               </span>
               <h3 style={{ 
                 fontFamily: 'var(--font-display)', 
@@ -166,7 +186,7 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
                 color: 'var(--text-deep)',
                 marginTop: '4px'
               }}>
-                Fest Registration
+                Call Out For Volunteers
               </h3>
               <div className="ornamental-divider" style={{ margin: '15px 0 0 0' }}>
                 <div className="ornamental-divider-motif">
@@ -212,7 +232,7 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
                 </div>
               </div>
 
-              {/* Roll No & Dept */}
+              {/* WhatsApp Number & Dept */}
               <div style={{ display: 'flex', gap: '20px' }} className="form-row-container">
                 <style dangerouslySetInnerHTML={{__html: `
                   @media (max-width: 500px) {
@@ -223,18 +243,18 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
                   }
                 `}} />
                 <div style={{ flex: 1 }}>
-                  <label className="form-label">Roll Number / ID *</label>
+                  <label className="form-label">WhatsApp Number *</label>
                   <div style={{ position: 'relative' }}>
                     <input
-                      type="text"
+                      type="tel"
                       required
-                      value={form.rollNo}
-                      onChange={(e) => setForm({...form, rollNo: e.target.value})}
-                      placeholder="e.g. AM.EN.U4CSE"
+                      value={form.phone}
+                      onChange={(e) => setForm({...form, phone: e.target.value})}
+                      placeholder="e.g. 9876543210"
                       className="form-input interactive-element"
-                      data-cursor-text="ROLL NO"
+                      data-cursor-text="WHATSAPP"
                     />
-                    <FileText size={16} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+                    <Phone size={16} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
                   </div>
                 </div>
 
@@ -259,48 +279,16 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
                   </div>
                 </div>
               </div>
-
-              {/* Category & Event Selectors */}
-              <div style={{ display: 'flex', gap: '20px' }} className="form-row-container">
-                <div style={{ flex: 1 }}>
-                  <label className="form-label">Category</label>
-                  <select
-                    value={form.category}
-                    onChange={(e) => handleCategoryChange(e.target.value)}
-                    className="form-input interactive-element"
-                    data-cursor-text="SELECT"
-                    style={{ paddingLeft: '15px', height: '46px' }}
-                  >
-                    {eventCategories.map((c) => (
-                      <option key={c.id} value={c.id}>{c.shortName}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div style={{ flex: 1.2 }}>
-                  <label className="form-label">Select Event</label>
-                  <select
-                    value={form.event}
-                    onChange={(e) => setForm({...form, event: e.target.value})}
-                    className="form-input interactive-element"
-                    data-cursor-text="SELECT"
-                    style={{ paddingLeft: '15px', height: '46px' }}
-                  >
-                    {selectedCategoryEvents.map((e) => (
-                      <option key={e.id} value={e.id}>{e.title.split(' (')[0]}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
             </div>
 
             <button
               type="submit"
+              disabled={isSubmitting}
               className="btn-editorial btn-editorial-primary interactive-element"
               data-cursor-text="SUBMIT"
-              style={{ width: '100%', marginTop: '30px' }}
+              style={{ width: '100%', marginTop: '30px', opacity: isSubmitting ? 0.7 : 1 }}
             >
-              Submit Registration
+              {isSubmitting ? 'Submitting Application...' : 'Submit Application'}
             </button>
           </form>
         ) : (
@@ -320,11 +308,11 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
               Registration Successful!
             </h3>
             
-            <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '30px' }}>
-              Your stage is booked. Show this ticket code at the venue check-in.
+            <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '30px', lineHeight: '1.5' }}>
+              Your application has been received! You will be added to the official volunteer WhatsApp group shortly.
             </p>
 
-            {/* Brass style Ticket Ticket card */}
+            {/* Brass style Ticket Card */}
             <div style={{
               backgroundColor: 'var(--bg-secondary)',
               border: '2px solid var(--accent-gold)',
@@ -361,7 +349,7 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
                 textTransform: 'uppercase',
                 fontWeight: '700'
               }}>
-                AGAM '26 — OFFICIAL PASS
+                AGAM '26 — VOLUNTEER APPLICANT
               </span>
 
               <h4 style={{ 
@@ -371,31 +359,18 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
                 color: 'var(--text-deep)',
                 margin: '8px 0 16px 0'
               }}>
-                {eventCategories.find(c => c.id === form.category)?.events.find(e => e.id === form.event)?.title.split(' (')[0]}
+                Fest Volunteer
               </h4>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.85rem', color: 'var(--text-muted)', borderTop: '1px dashed var(--border-color)', borderBottom: '1px dashed var(--border-color)', padding: '12px 0', margin: '0 10px 16px 10px' }}>
-                <div>Participant: <strong>{form.name}</strong></div>
-                <div>Department: <strong>{form.dept}</strong> (Roll: {form.rollNo})</div>
-                <div>Venue: <strong>{eventCategories.find(c => c.id === form.category)?.events.find(e => e.id === form.event)?.venue}</strong></div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.85rem', color: 'var(--text-muted)', borderTop: '1px dashed var(--border-color)', borderBottom: '1px dashed var(--border-color)', padding: '12px 0', margin: '0 10px 6px 10px' }}>
+                <div>Applicant: <strong>{form.name}</strong></div>
+                <div>Department: <strong>{form.dept}</strong></div>
+                <div>WhatsApp: <strong>{form.phone}</strong></div>
               </div>
 
-              {/* Ticket ID Box */}
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', backgroundColor: 'var(--bg-primary)', border: '1px solid var(--border-color)', padding: '8px 15px', borderRadius: '2px' }}>
-                <Ticket size={14} style={{ color: 'var(--accent-gold)' }} />
-                <code style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--text-deep)', letterSpacing: '0.05em' }}>
-                  {ticketId}
-                </code>
-                <button 
-                  onClick={handleCopyTicket}
-                  style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                  className="interactive-element"
-                  data-cursor-text="COPY"
-                >
-                  <Copy size={13} style={{ color: copied ? 'var(--accent-green)' : 'currentColor' }} />
-                </button>
+              <div style={{ marginTop: '14px', fontSize: '0.78rem', color: 'var(--accent-gold)', fontWeight: 'bold', letterSpacing: '0.05em' }}>
+                ✓ Application Logged
               </div>
-              {copied && <div style={{ fontSize: '0.7rem', color: 'var(--accent-green)', fontWeight: 'bold', marginTop: '4px' }}>Copied to clipboard!</div>}
             </div>
 
             <button

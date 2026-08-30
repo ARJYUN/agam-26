@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Ticket } from 'lucide-react';
+import { Menu, X, Users } from 'lucide-react';
 import { InstagramIcon } from './SocialIcons';
 
-export const Header = ({ onOpenRegisterModal }) => {
+export const Header = ({ onOpenVolunteerModal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [bgOpacity, setBgOpacity] = useState(0.92);
@@ -187,7 +187,7 @@ export const Header = ({ onOpenRegisterModal }) => {
             rel="noopener noreferrer"
             style={{
               color: 'var(--text-deep)',
-              marginLeft: '15px',
+              marginLeft: '10px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -211,39 +211,51 @@ export const Header = ({ onOpenRegisterModal }) => {
             <InstagramIcon size={14} />
           </a>
 
-          {/* Ticket icon or Register button */}
-          <button
-            onClick={() => onOpenRegisterModal()}
+          {/* Call out for Volunteers button */}
+          <a
+            href="#volunteers"
+            onClick={(e) => {
+              if (onOpenVolunteerModal) {
+                e.preventDefault();
+                onOpenVolunteerModal();
+              }
+            }}
             style={{
-              marginLeft: '10px',
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              color: 'var(--accent-red)',
-              display: 'flex',
+              marginLeft: '5px',
+              display: 'inline-flex',
               alignItems: 'center',
-              justifyContent: 'center',
-              width: '32px',
-              height: '32px',
-              borderRadius: '50%',
-              border: '1px solid var(--border-color)',
-              transition: 'all 0.3s'
+              gap: '6px',
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.68rem',
+              fontWeight: '700',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              color: 'var(--accent-red)',
+              backgroundColor: 'rgba(158, 63, 50, 0.08)',
+              border: '1px solid var(--accent-red)',
+              padding: '6px 14px',
+              borderRadius: '20px',
+              textDecoration: 'none',
+              transition: 'all 0.3s var(--ease-editorial)',
+              boxShadow: '0 2px 10px rgba(158, 63, 50, 0.1)'
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = 'var(--accent-red)';
               e.currentTarget.style.color = 'var(--bg-primary)';
-              e.currentTarget.style.borderColor = 'var(--accent-red)';
+              e.currentTarget.style.transform = 'translateY(-1px)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
+              e.currentTarget.style.backgroundColor = 'rgba(158, 63, 50, 0.08)';
               e.currentTarget.style.color = 'var(--accent-red)';
-              e.currentTarget.style.borderColor = 'var(--border-color)';
+              e.currentTarget.style.transform = 'none';
             }}
             className="interactive-element"
-            data-cursor-text="PASS"
+            data-cursor-text="JOIN"
           >
-            <Ticket size={14} />
-          </button>
+            <Users size={13} />
+            <span>Call for Volunteers</span>
+          </a>
+
         </nav>
 
         {/* Mobile Toggle Button */}
@@ -321,23 +333,37 @@ export const Header = ({ onOpenRegisterModal }) => {
                   {link.label}
                 </a>
               ))}
-              
-              <button
-                onClick={() => {
+
+              <a
+                href="#volunteers"
+                onClick={(e) => {
                   setMobileMenuOpen(false);
-                  onOpenRegisterModal();
+                  if (onOpenVolunteerModal) {
+                    e.preventDefault();
+                    onOpenVolunteerModal();
+                  }
                 }}
                 style={{
-                  marginTop: '15px',
-                  padding: '12px 35px',
-                  fontSize: '0.85rem',
-                  borderRadius: '4px',
-                  boxShadow: '0 8px 20px rgba(0,0,0,0.1)'
+                  marginTop: '10px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.9rem',
+                  fontWeight: '800',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: 'var(--bg-primary)',
+                  backgroundColor: 'var(--accent-red)',
+                  padding: '12px 28px',
+                  borderRadius: '30px',
+                  textDecoration: 'none',
+                  boxShadow: '0 6px 20px rgba(158, 63, 50, 0.25)'
                 }}
-                className="btn-editorial btn-editorial-primary"
               >
-                Register Pass
-              </button>
+                <Users size={16} />
+                Call for Volunteers
+              </a>
             </div>
 
             {/* Image in vacant space below */}

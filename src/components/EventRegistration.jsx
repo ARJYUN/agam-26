@@ -384,18 +384,6 @@ export const EventRegistration = ({ onOpenRegisterModal }) => {
                       ))}
                     </ul>
                   </div>
-
-                  <button 
-                    onClick={() => {
-                      setSelectedCategory(null);
-                      onOpenRegisterModal(selectedCategory.id, event.id);
-                    }}
-                    className="btn-editorial btn-editorial-secondary interactive-element"
-                    data-cursor-text="BOOK"
-                    style={{ alignSelf: 'flex-start', padding: '8px 20px', fontSize: '0.7rem', marginTop: '5px' }}
-                  >
-                    Register for Event &rarr;
-                  </button>
                 </div>
               ))}
             </div>

@@ -164,28 +164,6 @@ export const Countdown = ({ onOpenRegisterModal }) => {
           </div>
         </ScrollReveal>
 
-        {/* CTA Register Now */}
-        <ScrollReveal delay={250}>
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <button 
-              onClick={() => onOpenRegisterModal()}
-              className="btn-editorial btn-editorial-primary interactive-element"
-              data-cursor-text="JOIN NOW"
-              style={{
-                padding: '14px 45px',
-                fontSize: '0.8rem',
-                backgroundColor: 'var(--accent-red)',
-                border: 'none',
-                color: 'var(--bg-primary)',
-                borderRadius: '3px',
-                boxShadow: '0 4px 15px rgba(158, 63, 50, 0.15)'
-              }}
-            >
-              Register Now
-            </button>
-          </div>
-        </ScrollReveal>
-
       </div>
 
     </section>
