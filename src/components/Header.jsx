@@ -182,7 +182,7 @@ export const Header = ({ onOpenRegisterModal }) => {
 
           {/* Social Instagram link directly in header */}
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/agam.nssce"
             target="_blank"
             rel="noopener noreferrer"
             style={{
