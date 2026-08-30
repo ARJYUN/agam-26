@@ -125,7 +125,7 @@ export const Header = ({ onOpenRegisterModal }) => {
             fontWeight: '700',
             marginTop: '2px'
           }}>
-            2026-27 &bull; CULTURAL FEST
+            SEP 17–20, 2026 &bull; CULTURAL FEST
           </span>
         </a>
 
@@ -182,7 +182,7 @@ export const Header = ({ onOpenRegisterModal }) => {
 
           {/* Social Instagram link directly in header */}
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/agam.nssce"
             target="_blank"
             rel="noopener noreferrer"
             style={{
