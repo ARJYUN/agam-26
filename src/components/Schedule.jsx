@@ -8,9 +8,7 @@ export const Schedule = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        setIsVisible(entry.isIntersecting);
       },
       { threshold: 0.2 } // Trigger when 20% visible
     );
@@ -388,7 +386,7 @@ export const Schedule = () => {
         }
 
         .timeline-event {
-          flex: 1.2;
+          flex: 1;
           text-align: left;
           padding-left: 25px;
           font-family: var(--font-editorial);

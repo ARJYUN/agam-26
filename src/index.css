@@ -64,7 +64,8 @@ body {
   overflow-x: hidden;
 }
 
-#root, .app-container {
+#root,
+.app-container {
   width: 100%;
   position: relative;
   overflow-x: hidden;
@@ -95,6 +96,7 @@ body {
     display: none;
     width: 0;
   }
+
   * {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -159,7 +161,8 @@ p,
 .section-wrapper {
   position: relative;
   padding: 120px 8% 100px 8%;
-  background-color: var(--bg-primary); /* Ensure solid background for parallax */
+  background-color: var(--bg-primary);
+  /* Ensure solid background for parallax */
 }
 
 /* Stacking Parallax Sections */
@@ -168,7 +171,7 @@ p,
   bottom: 0;
   background-color: var(--bg-primary);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 @media (max-width: 768px) {
@@ -514,10 +517,22 @@ p,
 
 /* Preloader loading dot animation */
 @keyframes preloader-pulse {
-  0% { opacity: 0.2; transform: scale(0.8); }
-  50% { opacity: 1; transform: scale(1.2); }
-  100% { opacity: 0.2; transform: scale(0.8); }
+  0% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
 }
+
 .loading-dot {
   animation: preloader-pulse 1.5s infinite ease-in-out;
 }
@@ -659,8 +674,13 @@ p,
 
 /* Infinite Marquee Animation */
 @keyframes marquee-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .marquee-container {
@@ -686,12 +706,22 @@ p,
     align-items: flex-start !important;
     text-align: left !important;
   }
+
   .hero-quote-block {
     text-align: left !important;
     margin-top: 0 !important;
   }
+
   /* Restore original desktop-like order for landscape */
-  .hero-quote-block { order: 1 !important; }
-  .hero-agam-block { order: 2 !important; }
-  .hero-tagline-block { order: 3 !important; }
+  .hero-quote-block {
+    order: 1 !important;
+  }
+
+  .hero-agam-block {
+    order: 2 !important;
+  }
+
+  .hero-tagline-block {
+    order: 3 !important;
+  }
 }
