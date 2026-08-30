@@ -4,8 +4,8 @@ import { VeenaPlayerSketch, TheyyamDancerSketch } from './Sketches';
 import { ScrollReveal } from './ScrollReveal';
 
 export const Countdown = ({ onOpenRegisterModal }) => {
-  // Target date: September 17, 2026, 09:00 AM (relative to our user date in 2026)
-  const targetDate = new Date('2026-09-17T09:00:00').getTime();
+  // Target date: September 10, 2026, 09:00 AM (relative to our user date in 2026)
+  const targetDate = new Date('2026-09-10T09:00:00').getTime();
   
   const [timeLeft, setTimeLeft] = useState({
     days: '00',
@@ -77,6 +77,18 @@ export const Countdown = ({ onOpenRegisterModal }) => {
         {/* Title */}
         <ScrollReveal>
           <div className="editorial-heading-block" style={{ textAlign: 'center', margin: '0 auto 40px auto' }}>
+            <span style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.8rem',
+              letterSpacing: '0.25em',
+              textTransform: 'uppercase',
+              color: 'var(--accent-red)',
+              fontWeight: '800',
+              display: 'block',
+              marginBottom: '10px'
+            }}>
+              September 17 &bull; 18 &bull; 19 &bull; 20, 2026
+            </span>
             <h2 className="editorial-title" style={{ fontSize: '2rem', letterSpacing: '0.12em' }}>The Journey Begins In</h2>
             <div className="ornamental-divider" style={{ margin: '15px 0' }}>
               <div className="ornamental-divider-motif">
