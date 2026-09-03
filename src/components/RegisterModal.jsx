@@ -308,9 +308,37 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
               Registration Successful!
             </h3>
             
-            <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '30px', lineHeight: '1.5' }}>
-              Your application has been received! You will be added to the official volunteer WhatsApp group shortly.
+            <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '20px', lineHeight: '1.5' }}>
+              Your application has been received! Please join the official volunteer WhatsApp group below.
             </p>
+
+            <a 
+              href="https://chat.whatsapp.com/GZlnYw7dyCa0fxwMCSK8OS" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="interactive-element"
+              data-cursor-text="JOIN"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                backgroundColor: '#25D366',
+                color: 'white',
+                padding: '12px 24px',
+                borderRadius: '4px',
+                textDecoration: 'none',
+                fontWeight: 'bold',
+                fontFamily: 'var(--font-sans)',
+                marginBottom: '30px',
+                boxShadow: '0 4px 6px rgba(37, 211, 102, 0.2)',
+                transition: 'transform 0.2s'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+            >
+              <Phone size={18} /> Join WhatsApp Group
+            </a>
 
             {/* Brass style Ticket Card */}
             <div style={{

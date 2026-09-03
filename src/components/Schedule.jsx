@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 
 export const Schedule = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeDayIndex, setActiveDayIndex] = useState(0);
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -20,64 +19,12 @@ export const Schedule = () => {
     return () => observer.disconnect();
   }, []);
 
-  const daysSchedule = [
-    {
-      dayName: 'Day 1',
-      date: 'Sep 17',
-      title: 'Inauguration & Heritage',
-      events: [
-        { time: '09:30 AM', event: 'Fest Inauguration & Theyyam Performance' },
-        { time: '10:00 AM', event: 'Mural Sketching (Traditional)' },
-        { time: '11:00 AM', event: 'Classical Solo (Vocal - Stage 3)' },
-        { time: '12:00 PM', event: 'Monoact Dramatics (Stage 3)' },
-        { time: '01:30 PM', event: 'Creative Writing Spot Contest' },
-        { time: '02:00 PM', event: 'Folk Dance Extravaganza (Main Stage)' },
-        { time: '05:00 PM', event: 'Chenda Melam & Cultural Procession' },
-        { time: '07:30 PM', event: 'Acoustic Unplugged Night' }
-      ]
-    },
-    {
-      dayName: 'Day 2',
-      date: 'Sep 18',
-      title: 'Theatrics & Expression',
-      events: [
-        { time: '10:00 AM', event: 'Canvas of Dreams: Live Painting' },
-        { time: '11:00 AM', event: 'Vakya: Elocution (Library Hall)' },
-        { time: '01:30 PM', event: 'Clay Modeling & Organic Sculpting' },
-        { time: '03:00 PM', event: 'Nukkad Natak (Street Play - OAT)' },
-        { time: '05:00 PM', event: 'Theatrical Drama Showcase' },
-        { time: '07:30 PM', event: 'Folk Fusion Symphony' }
-      ]
-    },
-    {
-      dayName: 'Day 3',
-      date: 'Sep 19',
-      title: 'Rhythms & Visual Arts',
-      events: [
-        { time: '10:00 AM', event: 'Classical Dance Solo (Stage 2 - Mudra)' },
-        { time: '11:30 AM', event: 'Uninked: Spoken Word Poetry' },
-        { time: '02:00 PM', event: 'Spot Photography Review' },
-        { time: '04:00 PM', event: 'Frames & Focus: Indie Short Films' },
-        { time: '06:00 PM', event: 'Battle of the Bands (Rock & Fusion - OAT)' },
-        { time: '08:30 PM', event: 'Beatboxing & Electronic Rhythm Jam' }
-      ]
-    },
-    {
-      dayName: 'Day 4',
-      date: 'Sep 20',
-      title: 'Grand Finale & Star Pro-Show',
-      events: [
-        { time: '10:30 AM', event: 'All-Department Showcase & Finals' },
-        { time: '01:30 PM', event: 'Short Film Screening & Awards' },
-        { time: '04:00 PM', event: 'Vogue: The Cultural Fashion Walk' },
-        { time: '06:00 PM', event: 'Valedictory & Grand Trophy Presentation' },
-        { time: '07:30 PM', event: 'Neon Nights: DJ Performance' },
-        { time: '09:00 PM', event: 'Crescendo: Pro-Show Star Band' }
-      ]
-    }
+  const scheduleEvents = [
+    { day: 'Day 1', event: 'Agam Offstage Events' },
+    { day: 'Day 2', event: 'Agam Inauguration & Onstage Events' },
+    { day: 'Day 3', event: 'Onstage Cultural Events' },
+    { day: 'Day 4', event: 'Star Pro-Show & Grand Finale' }
   ];
-
-  const currentDay = daysSchedule[activeDayIndex];
 
   return (
     <section className="schedule-section" ref={sectionRef}>
@@ -94,32 +41,13 @@ export const Schedule = () => {
             <div className="schedule-divider-line"></div>
           </div>
 
-          {/* 4 Days Selection Tabs */}
-          <div className="schedule-days-tabs">
-            {daysSchedule.map((d, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveDayIndex(idx)}
-                className={`schedule-day-btn interactive-element ${activeDayIndex === idx ? 'active' : ''}`}
-                data-cursor-text={d.date}
-              >
-                <span className="day-name">{d.dayName}</span>
-                <span className="day-date">{d.date}</span>
-              </button>
-            ))}
-          </div>
-
-          <div className="schedule-day-header">
-            <span className="schedule-day-theme">{currentDay.title}</span>
-          </div>
-
-          <div className={`timeline-container ${isVisible ? 'is-visible' : ''}`} key={activeDayIndex}>
+          <div className={`timeline-container ${isVisible ? 'is-visible' : ''}`}>
             {/* The continuous flowing line down the center */}
             <div className="continuous-flow-line"></div>
 
-            {currentDay.events.map((item, index) => (
-              <div className="timeline-item" key={`${activeDayIndex}-${index}`} style={{ animationDelay: `${index * 0.15}s` }}>
-                <div className="timeline-time" style={{ animationDelay: `${index * 0.15 + 0.05}s` }}>{item.time}</div>
+            {scheduleEvents.map((item, index) => (
+              <div className="timeline-item" key={index} style={{ animationDelay: `${index * 0.15}s` }}>
+                <div className="timeline-time" style={{ animationDelay: `${index * 0.15 + 0.05}s` }}>{item.day}</div>
                 <div className="timeline-center">
                   <div className="timeline-dot" style={{ animationDelay: `${index * 0.15 + 0.1}s` }}></div>
                 </div>
@@ -211,75 +139,6 @@ export const Schedule = () => {
           opacity: 0.8;
         }
 
-        /* 4-Day Tab Controls */
-        .schedule-days-tabs {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 12px;
-          margin-bottom: 25px;
-          flex-wrap: wrap;
-        }
-
-        .schedule-day-btn {
-          background: rgba(171, 134, 95, 0.08);
-          border: 1px solid rgba(171, 134, 95, 0.35);
-          color: currentColor;
-          padding: 8px 18px;
-          border-radius: 20px;
-          cursor: pointer;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 2px;
-          transition: all 0.3s var(--ease-editorial);
-        }
-
-        .schedule-day-btn:hover {
-          background: rgba(171, 134, 95, 0.2);
-          border-color: currentColor;
-          transform: translateY(-2px);
-        }
-
-        .schedule-day-btn.active {
-          background: rgba(171, 134, 95, 0.35);
-          border-color: currentColor;
-          box-shadow: 0 0 15px rgba(171, 134, 95, 0.3);
-          transform: scale(1.04);
-        }
-
-        .schedule-day-btn .day-name {
-          font-family: var(--font-display);
-          font-size: 0.65rem;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          font-weight: 800;
-          opacity: 0.8;
-        }
-
-        .schedule-day-btn .day-date {
-          font-family: var(--font-editorial);
-          font-size: 1rem;
-          font-weight: 700;
-          letter-spacing: 0.05em;
-        }
-
-        .schedule-day-header {
-          margin-bottom: 35px;
-          text-align: center;
-        }
-
-        .schedule-day-theme {
-          font-family: var(--font-display);
-          font-size: 0.85rem;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          font-weight: 700;
-          color: currentColor;
-          opacity: 0.85;
-          border-bottom: 1px dashed rgba(171, 134, 95, 0.4);
-          padding-bottom: 6px;
-        }
 
         .timeline-container {
           display: flex;
