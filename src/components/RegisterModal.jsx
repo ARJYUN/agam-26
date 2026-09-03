@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Award, User, Mail, GraduationCap, Phone, CheckCircle, Ticket, Copy } from 'lucide-react';
+import { X, Award, User, Mail, GraduationCap, Phone, CheckCircle, Ticket, Copy, Calendar, MessageCircle, ExternalLink } from 'lucide-react';
 import { eventCategories } from '../data/festData';
 
 export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initialEventId = '' }) => {
@@ -8,6 +8,7 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
     email: '',
     phone: '',
     dept: 'CS',
+    year: '2nd Year',
     category: '',
     event: ''
   });
@@ -25,6 +26,7 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
         email: '',
         phone: '',
         dept: 'CS',
+        year: '2nd Year',
         category: '',
         event: ''
       });
@@ -57,6 +59,7 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
       formData.append('rollNo', form.phone);
       formData.append('whatsapp', form.phone);
       formData.append('dept', form.dept);
+      formData.append('year', form.year);
       formData.append('volunteerId', newId);
 
       // Send data to Google Apps Script webhook using URL-encoded form data
@@ -232,7 +235,24 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
                 </div>
               </div>
 
-              {/* WhatsApp Number & Dept */}
+              {/* WhatsApp Number */}
+              <div>
+                <label className="form-label">WhatsApp Number *</label>
+                <div style={{ position: 'relative' }}>
+                  <input
+                    type="tel"
+                    required
+                    value={form.phone}
+                    onChange={(e) => setForm({...form, phone: e.target.value})}
+                    placeholder="e.g. 9876543210"
+                    className="form-input interactive-element"
+                    data-cursor-text="WHATSAPP"
+                  />
+                  <Phone size={16} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+                </div>
+              </div>
+
+              {/* Department & Year of Study */}
               <div style={{ display: 'flex', gap: '20px' }} className="form-row-container">
                 <style dangerouslySetInnerHTML={{__html: `
                   @media (max-width: 500px) {
@@ -243,23 +263,7 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
                   }
                 `}} />
                 <div style={{ flex: 1 }}>
-                  <label className="form-label">WhatsApp Number *</label>
-                  <div style={{ position: 'relative' }}>
-                    <input
-                      type="tel"
-                      required
-                      value={form.phone}
-                      onChange={(e) => setForm({...form, phone: e.target.value})}
-                      placeholder="e.g. 9876543210"
-                      className="form-input interactive-element"
-                      data-cursor-text="WHATSAPP"
-                    />
-                    <Phone size={16} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
-                  </div>
-                </div>
-
-                <div style={{ flex: 0.8 }}>
-                  <label className="form-label">Department</label>
+                  <label className="form-label">Department *</label>
                   <div style={{ position: 'relative' }}>
                     <select
                       value={form.dept}
@@ -276,6 +280,24 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
                       <option value="IC">IC</option>
                     </select>
                     <GraduationCap size={16} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+                  </div>
+                </div>
+
+                <div style={{ flex: 1 }}>
+                  <label className="form-label">Year of Study *</label>
+                  <div style={{ position: 'relative' }}>
+                    <select
+                      value={form.year}
+                      onChange={(e) => setForm({...form, year: e.target.value})}
+                      className="form-input interactive-element"
+                      data-cursor-text="SELECT"
+                      style={{ paddingLeft: '40px', appearance: 'none', height: '46px' }}
+                    >
+                      <option value="2nd Year">2nd Year (2)</option>
+                      <option value="3rd Year">3rd Year (3)</option>
+                      <option value="4th Year">4th Year (4)</option>
+                    </select>
+                    <Calendar size={16} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
                   </div>
                 </div>
               </div>
@@ -308,9 +330,51 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
               Registration Successful!
             </h3>
             
-            <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '30px', lineHeight: '1.5' }}>
-              Your application has been received! You will be added to the official volunteer WhatsApp group shortly.
+            <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '20px', lineHeight: '1.5' }}>
+              Your application has been received! Please click the button below to join the official volunteer WhatsApp group.
             </p>
+
+            {/* WhatsApp Group CTA Button */}
+            <a
+              href="https://chat.whatsapp.com/GZlnYw7dyCa0fxwMCSK8OS?s=sw&p=a&mlu=4"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="interactive-element"
+              data-cursor-text="JOIN"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                backgroundColor: '#25D366',
+                color: '#ffffff',
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.85rem',
+                fontWeight: '700',
+                letterSpacing: '0.05em',
+                textTransform: 'uppercase',
+                padding: '12px 24px',
+                borderRadius: '4px',
+                textDecoration: 'none',
+                boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)',
+                transition: 'all 0.25s ease',
+                marginBottom: '25px',
+                width: '100%',
+                maxWidth: '400px'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#1eb954';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#25D366';
+                e.currentTarget.style.transform = 'none';
+              }}
+            >
+              <MessageCircle size={18} />
+              Join Official WhatsApp Group
+              <ExternalLink size={14} />
+            </a>
 
             {/* Brass style Ticket Card */}
             <div style={{
@@ -364,7 +428,7 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.85rem', color: 'var(--text-muted)', borderTop: '1px dashed var(--border-color)', borderBottom: '1px dashed var(--border-color)', padding: '12px 0', margin: '0 10px 6px 10px' }}>
                 <div>Applicant: <strong>{form.name}</strong></div>
-                <div>Department: <strong>{form.dept}</strong></div>
+                <div>Department & Year: <strong>{form.dept} ({form.year})</strong></div>
                 <div>WhatsApp: <strong>{form.phone}</strong></div>
               </div>
 
