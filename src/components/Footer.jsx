@@ -38,23 +38,6 @@ export const Footer = () => {
           {/* Subtle top divider */}
           <div style={{ width: '80px', height: '1px', backgroundColor: 'rgba(248, 244, 232, 0.2)', marginBottom: '15px' }} />
 
-          {/* Credits */}
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '12px',
-            fontSize: '0.75rem',
-            letterSpacing: '0.05em'
-          }}>
-            <div>
-              <span style={{ opacity: 0.7 }}>Web Designer:</span>{' '}
-              <span style={{ color: '#FFFFFF', fontWeight: '600', cursor: 'pointer', transition: 'color 0.3s' }} className="hover-highlight">Arjun</span>
-            </div>
-          </div>
-
-          {/* Subtle bottom divider */}
-          <div style={{ width: '80px', height: '1px', backgroundColor: 'rgba(248, 244, 232, 0.2)', marginTop: '15px', marginBottom: '15px' }} />
 
           {/* Copyright */}
           <div style={{ fontSize: '0.6rem', opacity: 0.6, letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: '500' }}>

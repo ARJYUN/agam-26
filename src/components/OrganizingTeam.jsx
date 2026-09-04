@@ -135,7 +135,7 @@ export const OrganizingTeam = () => {
               .vintage-polaroid {
                 width: 100% !important;
                 max-width: 165px;
-                padding: 10px 10px 50px 10px !important;
+                padding: 10px 10px 15px 10px !important;
               }
               .polaroid-image {
                 height: 160px !important;
@@ -164,11 +164,14 @@ export const OrganizingTeam = () => {
                   style={{
                     width: '240px',
                     backgroundColor: '#F7F3E8', // Aged paper color
-                    padding: '12px 12px 65px 12px', // Polaroid bottom heavy padding
+                    padding: '12px 12px 20px 12px', // Natural bottom padding
                     border: '1px solid #E2DEC9',
                     boxShadow: '0 8px 20px rgba(0,0,0,0.15), inset 0 0 40px rgba(112, 92, 69, 0.05)',
-                    transform: `rotate(${rotate}deg)`,
-                    position: 'relative'
+                    transform: 'rotate(' + rotate + 'deg)',
+                    position: 'relative',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center'
                   }}
                 >
                   {/* Faux Tape at the top center */}
@@ -195,23 +198,28 @@ export const OrganizingTeam = () => {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      paddingBottom: '20px',
                       overflow: 'hidden',
                       transition: 'filter 0.5s ease',
                       border: '1px solid rgba(0,0,0,0.1)'
                     }}
                   >
-                    <ArtisticAvatar seedId={member.id} />
+                    <img 
+                      src={member.image} 
+                      alt={member.name}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: 'center top'
+                      }}
+                    />
                   </div>
 
                   {/* Text Details (Handwritten/Typewriter style) */}
                   <div style={{
-                    position: 'absolute',
-                    bottom: '15px',
-                    left: '0',
                     width: '100%',
                     textAlign: 'center',
-                    padding: '0 15px'
+                    marginTop: '15px'
                   }}>
                     <h4 style={{
                       fontFamily: 'var(--font-editorial)',
@@ -219,8 +227,9 @@ export const OrganizingTeam = () => {
                       fontWeight: '700',
                       color: '#2A241D', // Dark brown ink
                       fontStyle: 'italic',
-                      marginBottom: '2px',
-                      letterSpacing: '0.02em'
+                      marginBottom: '4px',
+                      letterSpacing: '0.02em',
+                      lineHeight: '1.2'
                     }}>
                       {member.name}
                     </h4>
@@ -230,7 +239,8 @@ export const OrganizingTeam = () => {
                       fontFamily: 'var(--font-sans)',
                       fontWeight: '600',
                       textTransform: 'uppercase',
-                      letterSpacing: '0.15em'
+                      letterSpacing: '0.15em',
+                      lineHeight: '1.4'
                     }}>
                       {member.role}
                     </p>

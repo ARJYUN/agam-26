@@ -941,67 +941,59 @@ export const departmentStandings = [
 
 export const teamMembers = [
   {
-    id: 1,
-    name: 'Dr. P. R. Suresh',
-    role: 'Chief Patron',
-    dept: 'Principal',
-    group: 'patron',
-    image: 'suresh'
+    "id": 1,
+    "name": "Mazin KH",
+    "role": "Chairperson",
+    "image": "/teamMembers/MazinKHChairPerson.jpg"
   },
   {
-    id: 2,
-    name: 'Dr. Vinod Kumar',
-    role: 'Faculty Advisor',
-    dept: 'ME Dept',
-    group: 'faculty',
-    image: 'vinod'
+    "id": 2,
+    "name": "Arya V",
+    "role": "Vice Chairperson",
+    "image": "/teamMembers/AryaVViceChairPerson.jpg"
   },
   {
-    id: 3,
-    name: 'Hari Narayanan',
-    role: 'Student Chairman',
-    dept: 'ECE',
-    group: 'student',
-    image: 'hari'
+    "id": 3,
+    "name": "Muhammed Anwar N",
+    "role": "General Secretary",
+    "image": "/teamMembers/MuhAnwarNGeneralSecretary (1).jpg"
   },
   {
-    id: 4,
-    name: 'Meenakshi K. S.',
-    role: 'Arts Secretary',
-    dept: 'CSE',
-    group: 'student',
-    image: 'meenakshi'
+    "id": 4,
+    "name": "Muhammed Hashir KS",
+    "role": "Arts Club Secretary",
+    "image": "/teamMembers/MuhHashirKSArtsClubSecretary.jpg"
   },
   {
-    id: 5,
-    name: 'Arjun K. S.',
-    role: 'Web Designer',
-    dept: 'CSE',
-    group: 'tech',
-    image: 'arjun'
+    "id": 5,
+    "name": "Fathima Sithara CK",
+    "role": "Lady Representative",
+    "image": "/teamMembers/FathimaSitharaCKLadyRepresentative.jpg"
   },
   {
-    id: 6,
-    name: 'Sandra Mathew',
-    role: 'Media Lead',
-    dept: 'ECE',
-    group: 'design',
-    image: 'sandra'
+    "id": 6,
+    "name": "Muzawira",
+    "role": "Lady Representative",
+    "image": "/teamMembers/MuzawiraLadyRepresentative.jpg"
   },
   {
-    id: 7,
-    name: 'Aditya Varma',
-    role: 'General Convener',
-    dept: 'ME',
-    group: 'management',
-    image: 'aditya'
+    "id": 7,
+    "name": "Anju Nivedha",
+    "role": "University Union Councilor",
+    "image": "/teamMembers/AnjuNivedhaUniversityUnionCouncilor.jpg"
   },
   {
-    id: 8,
-    name: 'Sarang Nair',
-    role: 'Events Manager',
-    dept: 'CE',
-    group: 'events',
-    image: 'sarang'
+    "id": 8,
+    "name": "Muhammed Shifan CP",
+    "role": "University Union Councilor",
+    "image": "/teamMembers/MuhShifanCPUniversityUnionCouncilor.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Nikhil KS",
+    "role": "Magazine Editor",
+    "image": "/teamMembers/NikhilKSMagazineEditor.jpg"
   }
 ];
+
+
