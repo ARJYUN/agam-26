@@ -8,6 +8,7 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
     email: '',
     phone: '',
     dept: 'CS',
+    year: 'First Year',
     category: '',
     event: ''
   });
@@ -25,6 +26,7 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
         email: '',
         phone: '',
         dept: 'CS',
+        year: 'First Year',
         category: '',
         event: ''
       });
@@ -57,6 +59,7 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
       formData.append('rollNo', form.phone);
       formData.append('whatsapp', form.phone);
       formData.append('dept', form.dept);
+      formData.append('year', form.year);
       formData.append('volunteerId', newId);
 
       // Send data to Google Apps Script webhook using URL-encoded form data
@@ -232,7 +235,24 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
                 </div>
               </div>
 
-              {/* WhatsApp Number & Dept */}
+              {/* WhatsApp Number */}
+              <div>
+                <label className="form-label">WhatsApp Number *</label>
+                <div style={{ position: 'relative' }}>
+                  <input
+                    type="tel"
+                    required
+                    value={form.phone}
+                    onChange={(e) => setForm({...form, phone: e.target.value})}
+                    placeholder="e.g. 9876543210"
+                    className="form-input interactive-element"
+                    data-cursor-text="WHATSAPP"
+                  />
+                  <Phone size={16} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+                </div>
+              </div>
+
+              {/* Dept & Year */}
               <div style={{ display: 'flex', gap: '20px' }} className="form-row-container">
                 <style dangerouslySetInnerHTML={{__html: `
                   @media (max-width: 500px) {
@@ -242,23 +262,8 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
                     }
                   }
                 `}} />
+                
                 <div style={{ flex: 1 }}>
-                  <label className="form-label">WhatsApp Number *</label>
-                  <div style={{ position: 'relative' }}>
-                    <input
-                      type="tel"
-                      required
-                      value={form.phone}
-                      onChange={(e) => setForm({...form, phone: e.target.value})}
-                      placeholder="e.g. 9876543210"
-                      className="form-input interactive-element"
-                      data-cursor-text="WHATSAPP"
-                    />
-                    <Phone size={16} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
-                  </div>
-                </div>
-
-                <div style={{ flex: 0.8 }}>
                   <label className="form-label">Department</label>
                   <div style={{ position: 'relative' }}>
                     <select
@@ -276,6 +281,25 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
                       <option value="IC">IC</option>
                     </select>
                     <GraduationCap size={16} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+                  </div>
+                </div>
+
+                <div style={{ flex: 1 }}>
+                  <label className="form-label">Year</label>
+                  <div style={{ position: 'relative' }}>
+                    <select
+                      value={form.year}
+                      onChange={(e) => setForm({...form, year: e.target.value})}
+                      className="form-input interactive-element"
+                      data-cursor-text="SELECT"
+                      style={{ paddingLeft: '40px', appearance: 'none', height: '46px' }}
+                    >
+                      <option value="First Year">First Year</option>
+                      <option value="Second Year">Second Year</option>
+                      <option value="Third Year">Third Year</option>
+                      <option value="Fourth Year">Fourth Year</option>
+                    </select>
+                    <User size={16} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
                   </div>
                 </div>
               </div>
@@ -393,6 +417,7 @@ export const RegisterModal = ({ isOpen, onClose, initialCategoryId = '', initial
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.85rem', color: 'var(--text-muted)', borderTop: '1px dashed var(--border-color)', borderBottom: '1px dashed var(--border-color)', padding: '12px 0', margin: '0 10px 6px 10px' }}>
                 <div>Applicant: <strong>{form.name}</strong></div>
                 <div>Department: <strong>{form.dept}</strong></div>
+                <div>Year: <strong>{form.year}</strong></div>
                 <div>WhatsApp: <strong>{form.phone}</strong></div>
               </div>
 
