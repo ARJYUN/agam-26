@@ -1238,22 +1238,14 @@ export const teamMembers = [
   },
   {
     id: 5,
-    name: 'Sarang Nair',
-    role: 'WEB Lead',
+    name: 'Arjun K. S.',
+    role: 'Web Designer',
     dept: 'CSE',
     group: 'tech',
-    image: 'sarang'
-  },
-  {
-    id: 6,
-    name: 'Arjun K. S.',
-    role: 'Creative Designer',
-    dept: 'CSE',
-    group: 'design',
     image: 'arjun'
   },
   {
-    id: 7,
+    id: 6,
     name: 'Sandra Mathew',
     role: 'Media Lead',
     dept: 'ECE',
@@ -1261,11 +1253,19 @@ export const teamMembers = [
     image: 'sandra'
   },
   {
-    id: 8,
+    id: 7,
     name: 'Aditya Varma',
     role: 'General Convener',
     dept: 'ME',
     group: 'management',
     image: 'aditya'
+  },
+  {
+    id: 8,
+    name: 'Sarang Nair',
+    role: 'Events Manager',
+    dept: 'CE',
+    group: 'events',
+    image: 'sarang'
   }
 ];

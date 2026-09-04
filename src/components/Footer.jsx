@@ -48,11 +48,7 @@ export const Footer = () => {
             letterSpacing: '0.05em'
           }}>
             <div>
-              <span style={{ opacity: 0.7 }}>Tech Lead:</span>{' '}
-              <span style={{ color: '#FFFFFF', fontWeight: '600', cursor: 'pointer', transition: 'color 0.3s' }} className="hover-highlight">Sarang Nair</span>
-            </div>
-            <div>
-              <span style={{ opacity: 0.7 }}>Creative Designer:</span>{' '}
+              <span style={{ opacity: 0.7 }}>Web Designer:</span>{' '}
               <span style={{ color: '#FFFFFF', fontWeight: '600', cursor: 'pointer', transition: 'color 0.3s' }} className="hover-highlight">Arjun</span>
             </div>
           </div>
