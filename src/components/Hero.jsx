@@ -127,6 +127,14 @@ export const Hero = () => {
               #home {
                 background-image: url('/herom.png') !important;
               }
+              .quote-container {
+                background: rgba(247, 243, 232, 0.85) !important;
+                backdrop-filter: blur(6px) !important;
+                padding: 15px !important;
+                border-radius: 0 8px 8px 0 !important;
+                margin-top: 10px !important;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+              }
             }
             @media (min-width: 1025px), (max-width: 1024px) and (orientation: landscape) {
               .hero-flex-layout {
@@ -159,7 +167,7 @@ export const Hero = () => {
 
             {/* Malayalam Quote */}
             <ScrollReveal delay={100} className="hero-quote-block">
-              <div style={{
+              <div className="quote-container" style={{
                 textAlign: 'left',
                 borderLeft: '2px solid var(--accent-red)',
                 paddingLeft: '15px',
