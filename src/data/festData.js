@@ -860,81 +860,59 @@ export const departmentStandings = [
     rank: '01',
     dept: 'CSE',
     name: 'Computer Science & Engineering',
-    points: 2100,
-    participations: 14,
-    trend: 'up',
+    points: 0,
+    participations: 0,
+    trend: 'stable',
     breakdown: [
-      { event: 'Battle of the Bands', place: '1st Place', points: 400 },
-      { event: 'Folk Dance (Group)', place: '1st Place', points: 300 },
-      { event: 'Monoact (Solo Dramatics)', place: '2nd Place', points: 150 },
-      { event: 'Mural Sketching', place: '1st Place', points: 200 },
-      { event: 'Other Events', place: 'Consolidated', points: 1050 }
     ]
   },
   {
     rank: '02',
     dept: 'ECE',
     name: 'Electronics & Communication',
-    points: 1520,
-    participations: 12,
-    trend: 'down',
+    points: 0,
+    participations: 0,
+    trend: 'stable',
     breakdown: [
-      { event: 'Classical Dance (Solo)', place: '1st Place', points: 400 },
-      { event: 'Spot Photography', place: '1st Place', points: 200 },
-      { event: 'Classical Solo (Vocal)', place: '2nd Place', points: 150 },
-      { event: 'Mural Sketching', place: '2nd Place', points: 150 },
-      { event: 'Other Events', place: 'Consolidated', points: 620 }
     ]
   },
   {
     rank: '03',
     dept: 'ME',
     name: 'Mechanical Engineering',
-    points: 1280,
-    participations: 15,
+    points: 0,
+    participations: 0,
     trend: 'stable',
-    breakdown: [
-      { event: 'Nukkad Natak (Street Play)', place: '1st Place', points: 350 },
-      { event: 'Folk Dance (Group)', place: '2nd Place', points: 200 },
-      { event: 'Battle of the Bands', place: '2nd Place', points: 250 },
-      { event: 'Other Events', place: 'Consolidated', points: 480 }
-    ]
+    breakdown: []
   },
   {
     rank: '04',
     dept: 'CE',
     name: 'Civil Engineering',
-    points: 980,
-    participations: 11,
-    trend: 'up',
+    points: 0,
+    participations: 0,
+    trend: 'stable',
     breakdown: [
-      { event: 'Clay Modeling', place: '1st Place', points: 300 },
-      { event: 'Mural Sketching', place: '1st Place', points: 200 },
-      { event: 'Other Events', place: 'Consolidated', points: 480 }
     ]
   },
   {
     rank: '05',
     dept: 'EE',
     name: 'Electrical Engineering',
-    points: 760,
-    participations: 9,
+    points: 0,
+    participations: 0,
     trend: 'stable',
     breakdown: [
-      { event: 'Creative Writing', place: '2nd Place', points: 150 },
-      { event: 'Other Events', place: 'Consolidated', points: 610 }
     ]
   },
   {
     rank: '06',
     dept: 'IC',
     name: 'Instrumentation & Control Engineering',
-    points: 650,
-    participations: 8,
-    trend: 'up',
+    points: 0,
+    participations: 0,
+    trend: 'stable',
     breakdown: [
-      { event: 'Spot Photography', place: '3rd Place', points: 100 },
-      { event: 'Other Events', place: 'Consolidated', points: 550 }
     ]
   }
 ];
