@@ -132,8 +132,13 @@ export const Hero = () => {
                 backdrop-filter: none !important;
                 padding: 15px !important;
                 border-radius: 0 8px 8px 0 !important;
-                margin-top: 10px !important;
+                margin-top: 0 !important;
                 box-shadow: none !important;
+                border-left: none !important;
+                padding-left: 0 !important;
+              }
+              .quote-mark {
+                display: none !important;
               }
             }
             @media (min-width: 1025px), (max-width: 1024px) and (orientation: landscape) {
@@ -174,7 +179,7 @@ export const Hero = () => {
                 marginBottom: '40px',
                 maxWidth: '450px'
               }}>
-                <span style={{ fontSize: '1.25rem', color: 'var(--accent-red)', fontFamily: 'serif', display: 'block', lineHeight: '1', marginBottom: '8px' }}>"</span>
+                <span className="quote-mark" style={{ fontSize: '1.25rem', color: 'var(--accent-red)', fontFamily: 'serif', display: 'block', lineHeight: '1', marginBottom: '8px' }}>"</span>
                 <p style={{
                   fontSize: '0.95rem',
                   color: 'var(--text-muted)',
