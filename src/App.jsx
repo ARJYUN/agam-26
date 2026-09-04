@@ -4,6 +4,7 @@ import { Hero } from './components/Hero';
 import { Countdown } from './components/Countdown';
 import { EventRegistration } from './components/EventRegistration';
 import { Leaderboard } from './components/Leaderboard';
+import { OrganizingTeam } from './components/OrganizingTeam';
 import { Footer } from './components/Footer';
 import { AllEventsPage } from './components/AllEventsPage';
 import { RegisterModal } from './components/RegisterModal';
@@ -103,6 +104,12 @@ function App() {
 
             {/* Expandable Department standings */}
             <Leaderboard />
+
+            {/* Infinite Marquee Divider */}
+            <MarqueeDivider />
+
+            {/* Organizing committee grid with custom vector avatars */}
+            <OrganizingTeam />
             </div>
           </main>
         </>

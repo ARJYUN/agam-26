@@ -37,7 +37,8 @@ export const Header = ({ onOpenVolunteerModal }) => {
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#countdown' },
     { label: 'Events', href: '#events' },
-    { label: 'Leaderboard', href: '#leaderboard' }
+    { label: 'Leaderboard', href: '#leaderboard' },
+    { label: 'Team', href: '#team' }
   ];
 
   const handleNavClick = (e, href) => {
@@ -55,6 +56,7 @@ export const Header = ({ onOpenVolunteerModal }) => {
     else if (href === '#countdown') targetSelector = '#countdown';
     else if (href === '#events') targetSelector = '#events';
     else if (href === '#leaderboard') targetSelector = '#leaderboard';
+    else if (href === '#team') targetSelector = '#team';
 
     const targetElement = document.querySelector(targetSelector);
     if (targetElement) {
