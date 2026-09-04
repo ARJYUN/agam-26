@@ -128,12 +128,12 @@ export const Hero = () => {
                 background-image: url('/herom.png') !important;
               }
               .quote-container {
-                background: rgba(247, 243, 232, 0.85) !important;
-                backdrop-filter: blur(6px) !important;
+                background: transparent !important;
+                backdrop-filter: none !important;
                 padding: 15px !important;
                 border-radius: 0 8px 8px 0 !important;
                 margin-top: 10px !important;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+                box-shadow: none !important;
               }
             }
             @media (min-width: 1025px), (max-width: 1024px) and (orientation: landscape) {
