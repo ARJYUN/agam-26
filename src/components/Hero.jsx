@@ -136,6 +136,7 @@ export const Hero = () => {
                 box-shadow: none !important;
                 border-left: none !important;
                 padding-left: 0 !important;
+                text-align: center !important;
               }
               .quote-mark {
                 display: none !important;

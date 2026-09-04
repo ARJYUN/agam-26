@@ -2,6 +2,7 @@ export const eventCategories = [
   {
     "id": "literary-competitions-off-stage",
     "name": "Literary Competitions (Off Stage)",
+    "image": "4.png",
     "shortName": "Literary Competitions",
     "desc": "",
     "icon": "quill",
@@ -101,6 +102,7 @@ export const eventCategories = [
   {
     "id": "fine-arts-competitions-off-stage",
     "name": "Fine Arts Competitions (Off Stage)",
+    "image": "3.png",
     "shortName": "Fine Arts Competitions",
     "desc": "",
     "icon": "palette",
@@ -240,6 +242,7 @@ export const eventCategories = [
   {
     "id": "music-competitions-on-stage",
     "name": "Music Competitions (On Stage)",
+    "image": "8.png",
     "shortName": "Music Competitions",
     "desc": "",
     "icon": "music",
@@ -389,6 +392,7 @@ export const eventCategories = [
   {
     "id": "instrumental-music-on-stage",
     "name": "Instrumental Music (On Stage)",
+    "image": "2.png",
     "shortName": "Instrumental Music",
     "desc": "",
     "icon": "music",
@@ -518,6 +522,7 @@ export const eventCategories = [
   {
     "id": "dance-competitions-on-stage",
     "name": "Dance Competitions (On Stage)",
+    "image": "1.png",
     "shortName": "Dance Competitions",
     "desc": "",
     "icon": "anklet",
@@ -787,6 +792,7 @@ export const eventCategories = [
   {
     "id": "theatre-competitions-on-stage",
     "name": "Theatre Competitions (On Stage)",
+    "image": "10.png",
     "shortName": "Theatre Competitions",
     "desc": "",
     "icon": "theatre",

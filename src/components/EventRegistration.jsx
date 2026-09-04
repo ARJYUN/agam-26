@@ -121,7 +121,7 @@ export const EventRegistration = ({ onOpenRegisterModal }) => {
                   }}
                 >
                   <img 
-                    src={`/${index + 1}.png`} 
+                    src={`/${category.image || (index + 1) + '.png'}`} 
                     alt={category.name} 
                     style={{ 
                       maxHeight: '90px', 
