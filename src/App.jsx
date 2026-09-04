@@ -93,17 +93,17 @@ function App() {
               {/* Countdown to fest start */}
               <Countdown onOpenRegisterModal={handleOpenRegisterModal} />
 
+            {/* Expandable Department standings */}
+            <Leaderboard />
+
+            {/* Infinite Marquee Divider */}
+            <MarqueeDivider />
+
             {/* Event Schedule */}
             <Schedule />
 
             {/* Categories and Event registration details */}
             <EventRegistration onOpenRegisterModal={handleOpenRegisterModal} />
-
-            {/* Infinite Marquee Divider */}
-            <MarqueeDivider />
-
-            {/* Expandable Department standings */}
-            <Leaderboard />
 
             {/* Infinite Marquee Divider */}
             <MarqueeDivider />
