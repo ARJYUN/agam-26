@@ -251,7 +251,8 @@ export const AllEventsPage = ({ onOpenRegisterModal }) => {
                   justifyContent: 'space-between',
                   boxShadow: 'var(--shadow-editorial)',
                   transition: 'var(--transition-smooth)',
-                  position: 'relative'
+                  position: 'relative',
+                  minWidth: 0
                 }}
                 className="interactive-element"
                 onMouseEnter={(e) => {
@@ -290,7 +291,9 @@ export const AllEventsPage = ({ onOpenRegisterModal }) => {
                       letterSpacing: '0.02em',
                       color: 'var(--text-deep)',
                       margin: '0 0 12px 0',
-                      lineHeight: '1.2'
+                      lineHeight: '1.2',
+                      wordBreak: 'break-word',
+                      overflowWrap: 'anywhere'
                     }}>
                       {event.title}
                     </h3>
@@ -301,7 +304,9 @@ export const AllEventsPage = ({ onOpenRegisterModal }) => {
                       fontSize: '0.8rem',
                       color: 'var(--text-muted)',
                       lineHeight: '1.5',
-                      margin: '0 0 20px 0'
+                      margin: '0 0 20px 0',
+                      wordBreak: 'break-word',
+                      overflowWrap: 'anywhere'
                     }}>
                       {event.desc}
                     </p>
@@ -343,40 +348,7 @@ export const AllEventsPage = ({ onOpenRegisterModal }) => {
                     )}
                   </div>
 
-                  {/* Metadata & Actions */}
-                  <div>
-                    {/* Event Details Grid */}
-                    <div style={{
-                      display: 'grid',
-                      gridTemplateColumns: 'repeat(2, 1fr)',
-                      gap: '10px 15px',
-                      fontSize: '0.75rem',
-                      fontFamily: 'var(--font-sans)',
-                      color: 'var(--text-muted)',
-                      borderTop: '1px solid var(--border-color)',
-                      paddingTop: '15px',
-                      marginBottom: '20px'
-                    }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <Award size={13} style={{ color: 'var(--accent-gold)', flexShrink: 0 }} />
-                        <span>Prize: <strong>{event.prize}</strong></span>
-                      </div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <Receipt size={13} style={{ color: 'var(--text-muted)', flexShrink: 0 }} />
-                        <span>Fee: <strong>{event.fee}</strong></span>
-                      </div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <Calendar size={13} style={{ color: 'var(--text-muted)', flexShrink: 0 }} />
-                        <span>{event.time}</span>
-                      </div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <MapPin size={13} style={{ color: 'var(--text-muted)', flexShrink: 0 }} />
-                        <span style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }} title={event.venue}>
-                          {event.venue}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+
                 </div>
               </ScrollReveal>
             ))}

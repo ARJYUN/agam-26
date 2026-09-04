@@ -919,12 +919,6 @@ export const departmentStandings = [
 
 export const teamMembers = [
   {
-    "id": 1,
-    "name": "Mazin KH",
-    "role": "Chairperson",
-    "image": "/teamMembers/MazinKHChairPerson.jpg"
-  },
-  {
     "id": 2,
     "name": "Arya V",
     "role": "Vice Chairperson",
@@ -941,36 +935,6 @@ export const teamMembers = [
     "name": "Muhammed Hashir KS",
     "role": "Arts Club Secretary",
     "image": "/teamMembers/MuhHashirKSArtsClubSecretary.jpg"
-  },
-  {
-    "id": 5,
-    "name": "Fathima Sithara CK",
-    "role": "Lady Representative",
-    "image": "/teamMembers/FathimaSitharaCKLadyRepresentative.jpg"
-  },
-  {
-    "id": 6,
-    "name": "Muzawira",
-    "role": "Lady Representative",
-    "image": "/teamMembers/MuzawiraLadyRepresentative.jpg"
-  },
-  {
-    "id": 7,
-    "name": "Anju Nivedha",
-    "role": "University Union Councilor",
-    "image": "/teamMembers/AnjuNivedhaUniversityUnionCouncilor.jpg"
-  },
-  {
-    "id": 8,
-    "name": "Muhammed Shifan CP",
-    "role": "University Union Councilor",
-    "image": "/teamMembers/MuhShifanCPUniversityUnionCouncilor.jpg"
-  },
-  {
-    "id": 9,
-    "name": "Nikhil KS",
-    "role": "Magazine Editor",
-    "image": "/teamMembers/NikhilKSMagazineEditor.jpg"
   }
 ];
 
