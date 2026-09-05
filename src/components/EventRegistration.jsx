@@ -4,8 +4,14 @@ import { ScrollReveal } from './ScrollReveal';
 import { eventCategories } from '../data/festData';
 import { X, Award, Calendar, MapPin, Receipt, ShieldAlert, ArrowRight } from 'lucide-react';
 
-export const EventRegistration = ({ onOpenRegisterModal }) => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+export const EventRegistration = ({ 
+  onOpenRegisterModal,
+  selectedCategory: propSelectedCategory,
+  onSelectCategory: propOnSelectCategory
+}) => {
+  const [localSelectedCategory, setLocalSelectedCategory] = useState(null);
+  const selectedCategory = propSelectedCategory !== undefined ? propSelectedCategory : localSelectedCategory;
+  const setSelectedCategory = propOnSelectCategory || setLocalSelectedCategory;
 
 
 
@@ -239,8 +245,8 @@ export const EventRegistration = ({ onOpenRegisterModal }) => {
 
       </div>
 
-      {/* Slide-over Drawer for Event List Details */}
-      {selectedCategory && (
+      {/* Slide-over Drawer for Event List Details (Fallback if not handled at App root) */}
+      {!propOnSelectCategory && selectedCategory && (
         <div style={{
           position: 'fixed',
           top: 0,

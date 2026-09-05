@@ -11,14 +11,21 @@ import { RegisterModal } from './components/RegisterModal';
 import { Preloader } from './components/Preloader';
 import { MarqueeDivider } from './components/MarqueeDivider';
 import { Schedule } from './components/Schedule';
+import { CategoryEventsDrawer } from './components/CategoryEventsDrawer';
 
 function App() {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [selectedCat, setSelectedCat] = useState('');
   const [selectedEvt, setSelectedEvt] = useState('');
+  const [selectedCategoryDrawer, setSelectedCategoryDrawer] = useState(null);
   const [currentPage, setCurrentPage] = useState(window.location.hash === '#/events' ? 'events' : 'home');
   const [loading, setLoading] = useState(true);
   const [preloaderVisible, setPreloaderVisible] = useState(true);
+
+  useEffect(() => {
+    // Close category drawer on page change
+    setSelectedCategoryDrawer(null);
+  }, [currentPage]);
 
   useEffect(() => {
     // End the loading state (hides progress bar etc.)
@@ -103,7 +110,11 @@ function App() {
             <Schedule />
 
             {/* Categories and Event registration details */}
-            <EventRegistration onOpenRegisterModal={handleOpenRegisterModal} />
+            <EventRegistration 
+              onOpenRegisterModal={handleOpenRegisterModal} 
+              selectedCategory={selectedCategoryDrawer}
+              onSelectCategory={setSelectedCategoryDrawer}
+            />
 
             {/* Infinite Marquee Divider */}
             <MarqueeDivider />
@@ -128,6 +139,12 @@ function App() {
         onClose={handleCloseRegisterModal}
         initialCategoryId={selectedCat}
         initialEventId={selectedEvt}
+      />
+
+      {/* Category Events Slide-over Drawer (Rendered at root to stay above fixed Header) */}
+      <CategoryEventsDrawer
+        category={selectedCategoryDrawer}
+        onClose={() => setSelectedCategoryDrawer(null)}
       />
     </div>
   );
