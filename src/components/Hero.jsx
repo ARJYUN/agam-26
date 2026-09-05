@@ -128,12 +128,18 @@ export const Hero = () => {
                 background-image: url('/herom.png') !important;
               }
               .quote-container {
-                background: rgba(247, 243, 232, 0.85) !important;
-                backdrop-filter: blur(6px) !important;
+                background: transparent !important;
+                backdrop-filter: none !important;
                 padding: 15px !important;
                 border-radius: 0 8px 8px 0 !important;
-                margin-top: 10px !important;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+                margin-top: 0 !important;
+                box-shadow: none !important;
+                border-left: none !important;
+                padding-left: 0 !important;
+                text-align: center !important;
+              }
+              .quote-mark {
+                display: none !important;
               }
             }
             @media (min-width: 1025px), (max-width: 1024px) and (orientation: landscape) {
@@ -174,7 +180,7 @@ export const Hero = () => {
                 marginBottom: '40px',
                 maxWidth: '450px'
               }}>
-                <span style={{ fontSize: '1.25rem', color: 'var(--accent-red)', fontFamily: 'serif', display: 'block', lineHeight: '1', marginBottom: '8px' }}>"</span>
+                <span className="quote-mark" style={{ fontSize: '1.25rem', color: 'var(--accent-red)', fontFamily: 'serif', display: 'block', lineHeight: '1', marginBottom: '8px' }}>"</span>
                 <p style={{
                   fontSize: '0.95rem',
                   color: 'var(--text-muted)',
