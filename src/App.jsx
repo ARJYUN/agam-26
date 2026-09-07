@@ -11,11 +11,11 @@ import { Preloader } from './components/Preloader';
 import { MarqueeDivider } from './components/MarqueeDivider';
 import { Schedule } from './components/Schedule';
 import { CategoryEventsDrawer } from './components/CategoryEventsDrawer';
+import { MerchSection } from './components/MerchSection';
 import { MerchPopup } from './components/MerchPopup';
 
 function App() {
   const [selectedCategoryDrawer, setSelectedCategoryDrawer] = useState(null);
-  const [isMerchPopupOpen, setIsMerchPopupOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(window.location.hash === '#/events' ? 'events' : 'home');
   const [loading, setLoading] = useState(true);
   const [preloaderVisible, setPreloaderVisible] = useState(true);
@@ -38,14 +38,6 @@ function App() {
       return () => clearTimeout(hideTimer);
     }
   }, [loading]);
-
-  // Auto-open Merch Popup with a smooth delay after user explores the website
-  useEffect(() => {
-    const popupTimer = setTimeout(() => {
-      setIsMerchPopupOpen(true);
-    }, 4800);
-    return () => clearTimeout(popupTimer);
-  }, []);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -79,9 +71,7 @@ function App() {
       <div className="paper-texture" />
 
       {/* Navigation Header */}
-      <Header
-        onOpenMerchPopup={() => setIsMerchPopupOpen(true)}
-      />
+      <Header />
 
       {currentPage === 'home' ? (
         <>
@@ -116,6 +106,9 @@ function App() {
 
             {/* Organizing committee grid with custom vector avatars */}
             <OrganizingTeam />
+            
+            {/* Merch Section */}
+            <MerchSection />
             </div>
           </main>
         </>
@@ -134,11 +127,7 @@ function App() {
         onClose={() => setSelectedCategoryDrawer(null)}
       />
 
-      {/* Automatic Merch Popup Modal */}
-      <MerchPopup
-        isOpen={isMerchPopupOpen}
-        onClose={() => setIsMerchPopupOpen(false)}
-      />
+      <MerchPopup />
     </div>
   );
 }
