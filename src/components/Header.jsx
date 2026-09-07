@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ShoppingBag } from 'lucide-react';
 import { InstagramIcon } from './SocialIcons';
 
-export const Header = () => {
+export const Header = ({ onOpenMerchPopup }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -31,6 +31,14 @@ export const Header = () => {
   const handleNavClick = (e, href) => {
     setMobileMenuOpen(false);
     
+    if (href === '#merch') {
+      if (onOpenMerchPopup) {
+        e.preventDefault();
+        onOpenMerchPopup();
+        return;
+      }
+    }
+
     // If we are on the dedicated events page, change hash to navigate back to home
     if (window.location.hash === '#/events') {
       window.location.hash = href;
@@ -124,6 +132,18 @@ export const Header = () => {
                 display: none !important;
               }
             }
+            @keyframes merchBlinkPulse {
+              0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+                box-shadow: 0 2px 10px rgba(158, 63, 50, 0.35);
+              }
+              50% {
+                opacity: 0.85;
+                transform: scale(1.05);
+                box-shadow: 0 0 16px rgba(220, 75, 60, 0.75), 0 0 8px rgba(181, 138, 69, 0.5);
+              }
+            }
           `}} />
           
           {navLinks.map((link) => (
@@ -137,13 +157,16 @@ export const Header = () => {
                 fontWeight: '700',
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase',
-                color: 'var(--text-deep)',
+                color: link.isBadge ? 'var(--accent-red)' : 'var(--text-deep)',
                 textDecoration: 'none',
                 position: 'relative',
-                padding: '4px 0'
+                padding: '4px 0',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px'
               }}
               className="interactive-element nav-item-underline"
-              data-cursor-text="GO TO"
+              data-cursor-text={link.label.toUpperCase()}
             >
               <style dangerouslySetInnerHTML={{__html: `
                 .nav-item-underline::after {
@@ -161,8 +184,60 @@ export const Header = () => {
                 }
               `}} />
               {link.label}
+              {link.isBadge && (
+                <span style={{
+                  fontSize: '0.52rem',
+                  backgroundColor: 'var(--accent-red)',
+                  color: '#FFFFFF',
+                  padding: '1px 5px',
+                  borderRadius: '10px',
+                  fontWeight: '800',
+                  letterSpacing: '0.05em'
+                }}>
+                  HOT
+                </span>
+              )}
             </a>
           ))}
+
+          {/* Quick Buy Merch CTA Button */}
+          <a
+            href="#merch"
+            onClick={(e) => handleNavClick(e, '#merch')}
+            style={{
+              marginLeft: '6px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.68rem',
+              fontWeight: '800',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              color: '#FFFFFF',
+              backgroundColor: 'var(--accent-red)',
+              border: '1px solid rgba(255, 255, 255, 0.25)',
+              padding: '6px 14px',
+              borderRadius: '20px',
+              textDecoration: 'none',
+              transition: 'all 0.3s var(--ease-editorial)',
+              animation: 'merchBlinkPulse 2.2s infinite ease-in-out',
+              boxShadow: '0 2px 10px rgba(158, 63, 50, 0.35)'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#873428';
+              e.currentTarget.style.transform = 'translateY(-1px) scale(1.06)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--accent-red)';
+              e.currentTarget.style.transform = 'none';
+            }}
+            className="interactive-element"
+            data-cursor-text="BUY MERCH"
+          >
+            <ShoppingBag size={12} />
+            <span>Buy Merch</span>
+          </a>
 
           {/* Subtle editorial divider */}
           <div style={{
@@ -181,6 +256,7 @@ export const Header = () => {
             aria-label="Follow AGAM on Instagram"
             style={{
               color: 'var(--text-deep)',
+              marginLeft: '4px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -203,7 +279,6 @@ export const Header = () => {
           >
             <InstagramIcon size={14} />
           </a>
-
         </nav>
 
         {/* Mobile Toggle Button */}
@@ -297,12 +372,40 @@ export const Header = () => {
                 <div style={{ width: '30px', height: '1px', backgroundColor: 'var(--border-color)' }} />
               </div>
 
+              {/* Merch CTA in mobile menu */}
+              <a
+                href="#merch"
+                onClick={(e) => handleNavClick(e, '#merch')}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.9rem',
+                  fontWeight: '800',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: '#FFFFFF',
+                  backgroundColor: 'var(--accent-red)',
+                  border: '1px solid rgba(255, 255, 255, 0.25)',
+                  padding: '12px 28px',
+                  borderRadius: '30px',
+                  textDecoration: 'none',
+                  animation: 'merchBlinkPulse 2.2s infinite ease-in-out',
+                  boxShadow: '0 6px 20px rgba(158, 63, 50, 0.35)'
+                }}
+              >
+                <ShoppingBag size={16} />
+                <span>Buy Merch</span>
+              </a>
+
               {/* Instagram link in mobile menu */}
               <a
                 href="https://www.instagram.com/agam.nssce"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
+                  marginTop: '10px',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
