@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { X, Flame, ShoppingBag, ArrowRight } from 'lucide-react';
 import frontPoster from '../../media team 6.png';
 import backPoster from '../../media team 7.png';
@@ -7,22 +7,38 @@ export const MerchPopup = ({ isOpen, onClose }) => {
   // Google Form link for purchasing merch
   const GFORM_URL = "https://forms.gle/ZKeKMzciZmF2PiMz9";
 
+  // Allow closing via Escape key
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
     <div
       onClick={onClose}
+      className="merch-overlay"
       style={{
         position: 'fixed',
         inset: 0,
-        backgroundColor: 'rgba(15, 12, 10, 0.84)',
+        backgroundColor: 'rgba(15, 12, 10, 0.86)',
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
         zIndex: 99999,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '16px',
+        padding: 'max(14px, env(safe-area-inset-top, 14px)) 12px max(14px, env(safe-area-inset-bottom, 14px)) 12px',
+        overflowY: 'auto',
+        WebkitOverflowScrolling: 'touch',
         animation: 'merchFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
       }}
     >
@@ -35,10 +51,34 @@ export const MerchPopup = ({ isOpen, onClose }) => {
           from { transform: scale(0.92) translateY(20px); opacity: 0; }
           to { transform: scale(1) translateY(0); opacity: 1; }
         }
+        @media (max-width: 640px) {
+          .merch-overlay {
+            padding: max(14px, env(safe-area-inset-top, 14px)) 10px max(14px, env(safe-area-inset-bottom, 14px)) 10px !important;
+          }
+          .merch-modal-card {
+            max-height: calc(100dvh - 28px) !important;
+            border-radius: 20px !important;
+            margin: auto !important;
+          }
+          .merch-popup-close-btn {
+            top: 12px !important;
+            right: 12px !important;
+            width: 40px !important;
+            height: 40px !important;
+            background-color: #261F1A !important;
+            border: 2px solid rgba(255, 255, 255, 0.65) !important;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.85) !important;
+          }
+          .merch-header-container {
+            padding-right: 48px !important;
+            padding-left: 6px !important;
+          }
+        }
       `}} />
 
       <div
         onClick={(e) => e.stopPropagation()}
+        className="merch-modal-card"
         style={{
           position: 'relative',
           width: '100%',
@@ -51,7 +91,8 @@ export const MerchPopup = ({ isOpen, onClose }) => {
           overflow: 'hidden',
           display: 'flex',
           flexDirection: 'column',
-          maxHeight: '94vh',
+          maxHeight: 'min(90vh, 90dvh, calc(100dvh - 32px))',
+          margin: 'auto',
           animation: 'merchModalScale 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
         }}
       >
@@ -59,34 +100,38 @@ export const MerchPopup = ({ isOpen, onClose }) => {
         <button
           onClick={onClose}
           aria-label="Close popup"
+          className="merch-popup-close-btn"
           style={{
             position: 'absolute',
             top: '16px',
             right: '16px',
-            zIndex: 30,
-            width: '38px',
-            height: '38px',
+            zIndex: 100,
+            width: '42px',
+            height: '42px',
             borderRadius: '50%',
-            backgroundColor: 'rgba(255, 255, 255, 0.12)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
-            color: '#F8F4E8',
+            backgroundColor: '#2A221C',
+            border: '1.5px solid rgba(255, 255, 255, 0.45)',
+            color: '#FFFFFF',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer',
             transition: 'all 0.2s',
+            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.7)',
             padding: 0
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.backgroundColor = 'var(--accent-red)';
+            e.currentTarget.style.borderColor = 'var(--accent-red)';
             e.currentTarget.style.transform = 'scale(1.08)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.12)';
+            e.currentTarget.style.backgroundColor = '#2A221C';
+            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.45)';
             e.currentTarget.style.transform = 'scale(1)';
           }}
         >
-          <X size={20} />
+          <X size={22} strokeWidth={2.5} color="#FFFFFF" />
         </button>
 
         {/* Scrollable Modal Container */}
@@ -99,7 +144,7 @@ export const MerchPopup = ({ isOpen, onClose }) => {
         }}>
           
           {/* Header Banner */}
-          <div style={{ textAlign: 'center', paddingRight: '20px' }}>
+          <div className="merch-header-container" style={{ textAlign: 'center', paddingRight: '36px' }}>
             <div style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -286,26 +331,6 @@ export const MerchPopup = ({ isOpen, onClose }) => {
               <span>BUY NOW</span>
               <ArrowRight size={18} />
             </a>
-
-            <button
-              onClick={onClose}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: '#A89E90',
-                fontSize: '0.8rem',
-                fontFamily: 'var(--font-sans)',
-                cursor: 'pointer',
-                padding: '6px 14px',
-                textDecoration: 'underline',
-                transition: 'color 0.2s'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.color = '#FFFFFF'}
-              onMouseLeave={(e) => e.currentTarget.style.color = '#A89E90'}
-            >
-              Continue to website
-            </button>
-
           </div>
 
         </div>
