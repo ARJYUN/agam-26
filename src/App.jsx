@@ -9,6 +9,7 @@ import { Footer } from './components/Footer';
 import { AllEventsPage } from './components/AllEventsPage';
 import { Preloader } from './components/Preloader';
 import { MarqueeDivider } from './components/MarqueeDivider';
+import { Schedule } from './components/Schedule';
 import { CategoryEventsDrawer } from './components/CategoryEventsDrawer';
 import { MerchPopup } from './components/MerchPopup';
 
