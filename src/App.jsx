@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
+import { ProShow } from './components/ProShow';
 import { Countdown } from './components/Countdown';
 import { EventRegistration } from './components/EventRegistration';
 import { Leaderboard } from './components/Leaderboard';
@@ -83,6 +84,9 @@ function App() {
 
             {/* Rest of the site scrolls over the Hero */}
             <div style={{ position: 'relative', zIndex: 2, backgroundColor: 'var(--bg-primary)' }}>
+              {/* Pro Show Section */}
+              <ProShow />
+
               {/* Countdown to fest start */}
               <Countdown />
 
