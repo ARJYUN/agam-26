@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
-import { ChendaPlayerSketch } from './Sketches';
 import { ScrollReveal } from './ScrollReveal';
-import { departmentStandings } from '../data/festData';
-import { Award, ChevronDown, ChevronUp, TrendingUp, TrendingDown, Minus } from 'lucide-react';
+import { useLeaderboard } from '../hooks/useLeaderboard';
+import { Award, ChevronDown, ChevronUp, TrendingUp, TrendingDown, Minus, RefreshCw } from 'lucide-react';
 
 export const Leaderboard = () => {
   const [showFullLeaderboard, setShowFullLeaderboard] = useState(false);
   const [expandedDept, setExpandedDept] = useState(null);
 
-  // Podiums: Ranks 1, 2, 3
-  const firstRank = departmentStandings.find(d => d.rank === '01') || departmentStandings[0];
-  const secondRank = departmentStandings.find(d => d.rank === '02') || departmentStandings[1];
-  const thirdRank = departmentStandings.find(d => d.rank === '03') || departmentStandings[2];
+  const {
+    standings,
+    isLoading,
+    isLive,
+    lastUpdated,
+    refresh,
+    isConfigured
+  } = useLeaderboard();
 
-  // Sidebar: Ranks 4 to 8
-  const sidebarStandings = departmentStandings.filter(d => parseInt(d.rank, 10) >= 4);
+  // Podiums: Ranks 1, 2, 3
+  const firstRank = standings[0] || { dept: 'CSE', points: 0, rank: '01', name: 'Computer Science' };
+  const secondRank = standings[1] || { dept: 'ECE', points: 0, rank: '02', name: 'Electronics & Communication' };
+  const thirdRank = standings[2] || { dept: 'ME', points: 0, rank: '03', name: 'Mechanical Engineering' };
+
+  // Sidebar: Ranks 4 and beyond
+  const sidebarStandings = standings.slice(3);
 
   const toggleExpand = (deptId) => {
     if (expandedDept === deptId) {
@@ -69,6 +77,69 @@ export const Leaderboard = () => {
                 <span className="accent" />
                 <span />
               </div>
+            </div>
+
+            {/* Live Status & Last Updated Indicator */}
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '12px',
+              backgroundColor: 'rgba(37, 32, 26, 0.04)',
+              border: '1px solid var(--border-color)',
+              borderRadius: '20px',
+              padding: '5px 14px',
+              marginTop: '5px'
+            }}>
+              <span style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                fontFamily: 'var(--font-mono, monospace)',
+                fontSize: '0.72rem',
+                fontWeight: '700',
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase',
+                color: isLive ? 'var(--accent-red)' : 'var(--text-muted)'
+              }}>
+                <span style={{
+                  width: '7px',
+                  height: '7px',
+                  borderRadius: '50%',
+                  backgroundColor: isLive ? 'var(--accent-red)' : '#888',
+                  boxShadow: isLive ? '0 0 8px rgba(169, 50, 38, 0.7)' : 'none'
+                }} />
+                {isLive ? 'Live Sync' : (isConfigured ? 'Connecting...' : 'Official Standings')}
+              </span>
+
+              {lastUpdated && (
+                <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', borderLeft: '1px solid var(--border-color)', paddingLeft: '10px' }}>
+                  {lastUpdated.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                </span>
+              )}
+
+              {isConfigured && (
+                <button
+                  onClick={refresh}
+                  disabled={isLoading}
+                  title="Refresh leaderboard"
+                  aria-label="Refresh leaderboard"
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    cursor: isLoading ? 'default' : 'pointer',
+                    color: 'var(--text-muted)',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    padding: '2px',
+                    opacity: isLoading ? 0.4 : 0.8,
+                    transition: 'all 0.2s ease'
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--accent-gold)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-muted)'; }}
+                >
+                  <RefreshCw size={12} style={{ animation: isLoading ? 'spin 1s linear infinite' : 'none' }} />
+                </button>
+              )}
             </div>
           </div>
         </ScrollReveal>
@@ -360,14 +431,20 @@ export const Leaderboard = () => {
                             to { opacity: 1; transform: translateY(0); }
                           }
                         `}} />
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                          {deptRow.breakdown.map((item, idx) => (
-                            <div key={idx} style={{ display: 'flex', justifyContent: 'space-between' }}>
-                              <span>{item.event}</span>
-                              <strong>+{item.points}</strong>
-                            </div>
-                          ))}
-                        </div>
+                        {deptRow.breakdown && deptRow.breakdown.length > 0 ? (
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                            {deptRow.breakdown.map((item, idx) => (
+                              <div key={idx} style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                <span>{item.event}</span>
+                                <strong>+{item.points}</strong>
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <div style={{ fontStyle: 'italic', opacity: 0.6, fontSize: '0.75rem', padding: '4px 0' }}>
+                            Cumulative department score across all completed events
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>
@@ -448,7 +525,7 @@ export const Leaderboard = () => {
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              {departmentStandings.map((deptRow, index) => (
+              {standings.map((deptRow, index) => (
                 <div key={deptRow.dept} style={{ 
                   display: 'flex', 
                   justifyContent: 'space-between', 
