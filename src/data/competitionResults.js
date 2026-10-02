@@ -92,7 +92,7 @@ export const competitionResults = [
     category: 'Music Competitions (On Stage)',
     categoryId: 'music-competitions-on-stage',
     winners: [
-      { position: 1, name: 'Arundathy', dept: 'IC' },
+      { position: 1, name: 'Arundhathy S', dept: 'IC' },
       { position: 1, name: 'Merin', dept: 'ECE' },
       { position: 2, name: 'Pavithra P', dept: 'ECE' },
       { position: 3, name: 'Drishya', dept: 'EEE' }
@@ -225,7 +225,7 @@ export const competitionResults = [
     category: 'Music Competitions (On Stage)',
     categoryId: 'music-competitions-on-stage',
     winners: [
-      { position: 1, name: 'Anandh', dept: 'EEE' },
+      { position: 1, name: 'Anand K A', dept: 'EEE' },
       { position: 1, name: 'Kasinath', dept: 'CIVIL' },
       { position: 2, name: 'Niyog', dept: 'ECE' },
       { position: 3, name: 'Anasvar Ram N', dept: 'ECE' }
@@ -1354,6 +1354,41 @@ export const competitionResults = [
       { position: 1, name: 'Fathima Minha Nharakkodan', dept: 'IC' },
       { position: 2, name: 'Fathima Shahala', dept: 'CIVIL' },
       { position: 3, name: 'Fathima Shifa K', dept: 'ECE' }
+    ]
+  },
+  {
+    id: 'guitar',
+    eventName: 'Guitar',
+    category: 'Music Competitions (On Stage)',
+    categoryId: 'music-competitions-on-stage',
+    winners: [
+      { position: 1, name: 'Rohith Krishna R', dept: 'CSE' },
+      { position: 2, name: 'Anugrah K', dept: 'CSE' },
+      { position: 3, name: 'Abhijith VS', dept: 'EEE' },
+      { position: 3, name: 'Ashwin', dept: 'IC' }
+    ]
+  },
+  {
+    id: 'keyboard',
+    eventName: 'Keyboard',
+    category: 'Music Competitions (On Stage)',
+    categoryId: 'music-competitions-on-stage',
+    winners: [
+      { position: 1, name: 'Harikrishna M', dept: 'MECH' },
+      { position: 2, name: 'Ankith S', dept: 'CSE' },
+      { position: 2, name: 'Aswin', dept: 'IC' },
+      { position: 3, name: 'Anasvar Ram N', dept: 'ECE' }
+    ]
+  },
+  {
+    id: 'western-dance',
+    eventName: 'Western Dance',
+    category: 'Dance Competitions (On Stage)',
+    categoryId: 'dance-competitions-on-stage',
+    winners: [
+      { position: 1, name: 'Akshaya', dept: 'CSE' },
+      { position: 2, name: 'Thejus', dept: 'IC' },
+      { position: 3, name: 'Avanthika', dept: 'ECE' }
     ]
   }
   ];

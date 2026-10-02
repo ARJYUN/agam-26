@@ -458,16 +458,6 @@ export const eventCategories = [
         "rules": []
       },
       {
-        "id": "keyboard-western",
-        "title": "Keyboard (Western)",
-        "desc": "Keyboard (Western)",
-        "prize": "",
-        "fee": "",
-        "time": "",
-        "venue": "",
-        "rules": []
-      },
-      {
         "id": "chendamelam-group",
         "title": "Chendamelam (Group)",
         "desc": "Chendamelam (Group)",
