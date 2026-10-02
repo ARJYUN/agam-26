@@ -168,7 +168,7 @@ export const CompetitionResultsModal = ({ isOpen, onClose }) => {
               marginBottom: '6px'
             }}>
               <Trophy size={11} color="var(--accent-gold)" />
-              <span>Official Festival Results &bull; 33 Competitions</span>
+              <span>Official Festival Results &bull; 110 Competitions</span>
             </div>
 
             <h2 style={{
