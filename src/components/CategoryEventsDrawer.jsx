@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import { X, Award, Calendar, MapPin, Receipt, ShieldAlert } from 'lucide-react';
+import { X, Award, Calendar, MapPin, Receipt, ShieldAlert, Trophy, ExternalLink } from 'lucide-react';
+import { findEventResult } from '../data/competitionResults';
 
-export const CategoryEventsDrawer = ({ category, onClose }) => {
+export const CategoryEventsDrawer = ({ category, onClose, onOpenResultsModal }) => {
   useEffect(() => {
     if (!category) return;
 
@@ -142,26 +143,138 @@ export const CategoryEventsDrawer = ({ category, onClose }) => {
           flexDirection: 'column',
           gap: '30px'
         }}>
-          {category.events.map((event) => (
-            <div key={event.id} style={{
-              paddingBottom: '24px',
-              borderBottom: '1px solid var(--border-color)',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '12px'
-            }}>
-              <h4 style={{ 
-                fontFamily: 'var(--font-display)', 
-                fontSize: '1.1rem', 
-                color: 'var(--text-deep)', 
-                textTransform: 'uppercase' 
+          {category.events.map((event) => {
+            const result = findEventResult(event.title, event.id);
+
+            return (
+              <div key={event.id} style={{
+                paddingBottom: '24px',
+                borderBottom: '1px solid var(--border-color)',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '12px'
               }}>
-                {event.title}
-              </h4>
-              
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
-                {event.desc}
-              </p>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '10px' }}>
+                  <h4 style={{ 
+                    fontFamily: 'var(--font-display)', 
+                    fontSize: '1.1rem', 
+                    color: 'var(--text-deep)', 
+                    textTransform: 'uppercase',
+                    margin: 0
+                  }}>
+                    {event.title}
+                  </h4>
+                  {result && (
+                    <span style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '0.6rem',
+                      fontWeight: '800',
+                      letterSpacing: '0.08em',
+                      backgroundColor: 'rgba(212, 175, 55, 0.15)',
+                      color: 'var(--accent-gold)',
+                      border: '1px solid rgba(212, 175, 55, 0.4)',
+                      padding: '2px 8px',
+                      borderRadius: '12px',
+                      whiteSpace: 'nowrap'
+                    }}>
+                      RESULT OUT
+                    </span>
+                  )}
+                </div>
+                
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>
+                  {event.desc}
+                </p>
+
+                {/* Published Winners Podium */}
+                {result && result.winners && result.winners.length > 0 && (
+                  <div style={{
+                    backgroundColor: 'rgba(212, 175, 55, 0.06)',
+                    border: '1px solid rgba(212, 175, 55, 0.3)',
+                    borderRadius: '4px',
+                    padding: '14px 16px',
+                    margin: '4px 0'
+                  }}>
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      marginBottom: '10px',
+                      paddingBottom: '8px',
+                      borderBottom: '1px solid rgba(212, 175, 55, 0.2)'
+                    }}>
+                      <span style={{
+                        fontFamily: 'var(--font-display)',
+                        fontSize: '0.68rem',
+                        fontWeight: '800',
+                        letterSpacing: '0.12em',
+                        textTransform: 'uppercase',
+                        color: 'var(--accent-gold)',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px'
+                      }}>
+                        <Trophy size={13} /> Official Winners
+                      </span>
+                      {onOpenResultsModal && (
+                        <button
+                          onClick={() => {
+                            onClose();
+                            onOpenResultsModal();
+                          }}
+                          style={{
+                            background: 'none',
+                            border: 'none',
+                            fontFamily: 'var(--font-sans)',
+                            fontSize: '0.65rem',
+                            fontWeight: '600',
+                            color: 'var(--accent-red)',
+                            cursor: 'pointer',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '4px',
+                            padding: 0
+                          }}
+                        >
+                          View All 33 <ExternalLink size={10} />
+                        </button>
+                      )}
+                    </div>
+
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                      {result.winners.map((winner, wIdx) => {
+                        const medal = winner.position === 1 ? '🥇 1st' : winner.position === 2 ? '🥈 2nd' : '🥉 3rd';
+                        return (
+                          <div key={wIdx} style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            fontSize: '0.82rem',
+                            padding: '3px 0',
+                            borderBottom: wIdx !== result.winners.length - 1 ? '1px dashed rgba(212, 175, 55, 0.15)' : 'none'
+                          }}>
+                            <span style={{ fontWeight: '600', color: 'var(--text-deep)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                              <span style={{ fontSize: '0.78rem', minWidth: '42px' }}>{medal}</span>
+                              {winner.name}
+                            </span>
+                            <span style={{
+                              fontSize: '0.65rem',
+                              fontWeight: '800',
+                              fontFamily: 'var(--font-mono, monospace)',
+                              backgroundColor: 'rgba(37, 32, 26, 0.06)',
+                              border: '1px solid var(--border-color)',
+                              padding: '2px 8px',
+                              borderRadius: '10px',
+                              color: 'var(--accent-red)'
+                            }}>
+                              {winner.dept}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
 
               {/* Metadata Row */}
               <div style={{
@@ -205,7 +318,8 @@ export const CategoryEventsDrawer = ({ category, onClose }) => {
                 </ul>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { InstagramIcon } from './SocialIcons';
 
-export const Header = () => {
+export const Header = ({ onOpenResultsModal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -24,6 +24,7 @@ export const Header = () => {
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#countdown' },
     { label: 'Events', href: '#events' },
+    { label: 'Results', href: '#results', isBadge: true, badgeText: 'NEW' },
     { label: 'Leaderboard', href: '#leaderboard' },
     { label: 'Team', href: '#team' }
   ];
@@ -31,6 +32,14 @@ export const Header = () => {
   const handleNavClick = (e, href) => {
     setMobileMenuOpen(false);
     
+    if (href === '#results') {
+      e.preventDefault();
+      if (onOpenResultsModal) {
+        onOpenResultsModal();
+      }
+      return;
+    }
+
     // If we are on the dedicated events page, change hash to navigate back to home
     if (window.location.hash === '#/events') {
       window.location.hash = href;
@@ -174,7 +183,7 @@ export const Header = () => {
                   fontWeight: '800',
                   letterSpacing: '0.05em'
                 }}>
-                  HOT
+                  {link.badgeText || 'HOT'}
                 </span>
               )}
             </a>
@@ -292,11 +301,27 @@ export const Header = () => {
                     fontWeight: '800',
                     letterSpacing: '0.15em',
                     textTransform: 'uppercase',
-                    color: 'var(--text-deep)',
-                    textDecoration: 'none'
+                    color: link.isBadge ? 'var(--accent-red)' : 'var(--text-deep)',
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px'
                   }}
                 >
                   {link.label}
+                  {link.isBadge && (
+                    <span style={{
+                      fontSize: '0.6rem',
+                      backgroundColor: 'var(--accent-red)',
+                      color: '#FFFFFF',
+                      padding: '2px 8px',
+                      borderRadius: '12px',
+                      fontWeight: '800',
+                      letterSpacing: '0.05em'
+                    }}>
+                      {link.badgeText || 'HOT'}
+                    </span>
+                  )}
                 </a>
               ))}
 

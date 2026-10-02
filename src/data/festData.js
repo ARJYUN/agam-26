@@ -856,69 +856,351 @@ export const eventCategories = [
         "time": "",
         "venue": "",
         "rules": []
-      }
+      },
+      {
+    "id": "mohiniyattam",
+    "title": "Mohiniyattam",
+    "desc": "Mohiniyattam",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "step-n-syndro",
+    "title": "Step N Syndro",
+    "desc": "Step N Syndro",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "jazz",
+    "title": "Jazz",
+    "desc": "Jazz",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "kathak",
+    "title": "Kathak",
+    "desc": "Kathak",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "odissi",
+    "title": "Odissi",
+    "desc": "Odissi",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "keyboard",
+    "title": "Keyboard",
+    "desc": "Keyboard",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "drums",
+    "title": "Drums",
+    "desc": "Drums",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "mridangam",
+    "title": "Mridangam",
+    "desc": "Mridangam",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "vattappattu",
+    "title": "Vattappattu",
+    "desc": "Vattappattu",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "nostalgia",
+    "title": "Nostalgia",
+    "desc": "Nostalgia",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "duffmutt",
+    "title": "Duffmutt",
+    "desc": "Duffmutt",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "chendamelam",
+    "title": "Chendamelam",
+    "desc": "Chendamelam",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "chenda-thayambakam",
+    "title": "Chenda (Thayambakam)",
+    "desc": "Chenda (Thayambakam)",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "western-dance",
+    "title": "Western Dance",
+    "desc": "Western Dance",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "arabanamutt",
+    "title": "Arabanamutt",
+    "desc": "Arabanamutt",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "keralanadanam",
+    "title": "Keralanadanam",
+    "desc": "Keralanadanam",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "guitar",
+    "title": "Guitar",
+    "desc": "Guitar",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "oppana",
+    "title": "Oppana",
+    "desc": "Oppana",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "pooramkali",
+    "title": "Pooramkali",
+    "desc": "Pooramkali",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  }
     ]
   }
 ];
 
+export { competitionResults } from './competitionResults';
+
 export const departmentStandings = [
   {
     rank: '01',
+    dept: 'ECE',
+    name: 'Electronics & Communication',
+    points: 0,
+    participations: 0,
+    trend: 'up',
+    breakdown: [
+      { event: 'Patriotic Song (1st)', points: 5 },
+      { event: 'Poem Recitation Malayalam (1st)', points: 5 },
+      { event: 'Kathakali Song Female (1st)', points: 5 },
+      { event: 'English Poem Recitation (1st)', points: 5 },
+      { event: 'Koodiyattam (1st)', points: 5 },
+      { event: 'Ottamthullal (1st)', points: 5 },
+      { event: 'Western Song (1st)', points: 5 },
+      { event: 'Poem Recitation Arabic (1st)', points: 5 },
+      { event: 'Ganamela (1st)', points: 5 },
+      { event: 'Poem Recitation Urdu (1st)', points: 5 },
+      { event: 'Parichamuttu (1st)', points: 5 },
+      { event: 'Semiclassical Song Hindustani Girls (1st)', points: 5 },
+      { event: 'Semiclassical Song Karnatic Boys (1st)', points: 5 },
+      { event: 'Classical Music Boys (1st)', points: 5 },
+      { event: 'Classical Music Girls (1st)', points: 5 },
+      { event: 'Kuchipudi (2nd)', points: 3 },
+      { event: 'Kathakali Song Female (2nd)', points: 3 },
+      { event: 'English Poem Recitation (2nd)', points: 3 },
+      { event: 'Poem Recitation Sanskrit (2nd)', points: 3 },
+      { event: 'Spot Photography (2nd)', points: 3 },
+      { event: 'Light Music Girls (2nd)', points: 3 },
+      { event: 'Light Music Boys (2nd)', points: 3 },
+      { event: 'Ganamela (2nd)', points: 3 },
+      { event: 'English Drama (2nd)', points: 3 },
+      { event: 'Semiclassical Song Karnatic Girl (2nd)', points: 3 },
+      { event: 'Classical Music Girls (2nd)', points: 3 },
+      { event: 'Fashion Show (2nd)', points: 3 }
+    ]
+  },
+  {
+    rank: '02',
+    dept: 'CE',
+    name: 'Civil Engineering',
+    points: 0,
+    participations: 0,
+    trend: 'up',
+    breakdown: [
+      { event: 'Spot Photography (1st)', points: 5 },
+      { event: 'Skit Malayalam (1st)', points: 5 },
+      { event: 'Light Music Girls (1st)', points: 5 },
+      { event: 'Light Music Boys (1st)', points: 5 },
+      { event: 'Semiclassical Song Hindustani Boys (1st)', points: 5 },
+      { event: 'Fashion Show (1st)', points: 5 },
+      { event: 'Patriotic Song (2nd)', points: 3 },
+      { event: 'Kathakali Song Male (2nd)', points: 3 },
+      { event: 'Poem Recitation Hindi (2nd)', points: 3 },
+      { event: 'Spot Dance (2nd)', points: 3 },
+      { event: 'Poem Recitation Urdu (2nd)', points: 3 },
+      { event: 'Classical Music Boys (2nd)', points: 3 },
+      { event: 'Folk Song (2nd)', points: 3 },
+      { event: 'Vanjipattu (3rd)', points: 1 },
+      { event: 'English Drama (3rd)', points: 1 },
+      { event: 'Poem Recitation Hindi (3rd)', points: 1 }
+    ]
+  },
+  {
+    rank: '03',
     dept: 'CSE',
     name: 'Computer Science & Engineering',
     points: 0,
     participations: 0,
     trend: 'stable',
     breakdown: [
+      { event: 'Kuchipudi (1st)', points: 5 },
+      { event: 'Vanjipattu (1st)', points: 5 },
+      { event: 'Kathakali Song Male (1st)', points: 5 },
+      { event: 'Poem Recitation Sanskrit (1st)', points: 5 },
+      { event: 'Spot Dance (1st)', points: 5 },
+      { event: 'Classical Music Girls (1st)', points: 5 },
+      { event: 'Poem Recitation Malayalam (2nd)', points: 3 },
+      { event: 'Theme Dance (2nd)', points: 3 },
+      { event: 'Poem Recitation Tamil (2nd)', points: 3 },
+      { event: 'Parichamuttu (2nd)', points: 3 },
+      { event: 'Semiclassical Song Hindustani Girls (2nd)', points: 3 },
+      { event: 'Patriotic Song (3rd)', points: 1 },
+      { event: 'English Skit (3rd)', points: 1 },
+      { event: 'Light Music Girls (3rd)', points: 1 },
+      { event: 'Ganamela (3rd)', points: 1 },
+      { event: 'Fashion Show (3rd)', points: 1 }
     ]
-  },
-  {
-    rank: '02',
-    dept: 'ECE',
-    name: 'Electronics & Communication',
-    points: 0,
-    participations: 0,
-    trend: 'stable',
-    breakdown: [
-    ]
-  },
-  {
-    rank: '03',
-    dept: 'ME',
-    name: 'Mechanical Engineering',
-    points: 0,
-    participations: 0,
-    trend: 'stable',
-    breakdown: []
   },
   {
     rank: '04',
-    dept: 'CE',
-    name: 'Civil Engineering',
-    points: 0,
-    participations: 0,
-    trend: 'stable',
-    breakdown: [
-    ]
-  },
-  {
-    rank: '05',
     dept: 'EE',
     name: 'Electrical Engineering',
     points: 0,
     participations: 0,
-    trend: 'stable',
+    trend: 'down',
     breakdown: [
+      { event: 'Poem Recitation Tamil (1st)', points: 5 },
+      { event: 'Light Music Boys (1st)', points: 5 },
+      { event: 'Folk Song (1st)', points: 5 },
+      { event: 'Fashion Show (1st)', points: 5 },
+      { event: 'Patriotic Song (2nd)', points: 3 },
+      { event: 'Poem Recitation Malayalam (2nd)', points: 3 },
+      { event: 'English Skit (2nd)', points: 3 },
+      { event: 'Vanjipattu (2nd)', points: 3 },
+      { event: 'Western Song (2nd)', points: 3 },
+      { event: 'Skit Malayalam (2nd)', points: 3 },
+      { event: 'Poem Recitation Arabic (2nd)', points: 3 },
+      { event: 'Kuchipudi (3rd)', points: 1 },
+      { event: 'Kathakali Song Female (3rd)', points: 1 },
+      { event: 'English Poem Recitation (3rd)', points: 1 },
+      { event: 'Spot Photography (3rd)', points: 1 },
+      { event: 'Classical Music Girls (3rd)', points: 1 }
     ]
   },
   {
-    rank: '06',
+    rank: '05',
     dept: 'IC',
     name: 'Instrumentation & Control Engineering',
     points: 0,
     participations: 0,
     trend: 'stable',
     breakdown: [
+      { event: 'Theme Dance (1st)', points: 5 },
+      { event: 'English Skit (1st)', points: 5 },
+      { event: 'English Poem Recitation (1st)', points: 5 },
+      { event: 'Poem Recitation Sanskrit (2nd)', points: 3 },
+      { event: 'Skit Malayalam (2nd)', points: 3 },
+      { event: 'Patriotic Song (3rd)', points: 1 },
+      { event: 'Western Song (3rd)', points: 1 },
+      { event: 'Spot Dance (3rd)', points: 1 }
+    ]
+  },
+  {
+    rank: '06',
+    dept: 'ME',
+    name: 'Mechanical Engineering',
+    points: 0,
+    participations: 0,
+    trend: 'down',
+    breakdown: [
+      { event: 'Poem Recitation Hindi (1st)', points: 5 },
+      { event: 'English Drama (1st)', points: 5 },
+      { event: 'Semiclassical Song Karnatic Girl (1st)', points: 5 },
+      { event: 'Semiclassical Song Karnatic Boys (2nd)', points: 3 },
+      { event: 'Semiclassical Song Karnatic Girl (3rd)', points: 1 },
+      { event: 'Classical Music Boys (3rd)', points: 1 }
     ]
   }
 ];
