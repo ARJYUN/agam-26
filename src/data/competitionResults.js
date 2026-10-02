@@ -913,8 +913,8 @@ export const competitionResults = [
     eventId: 'chenda-thayambaka',
     winners: [
       { position: 1, name: 'Navnit Jayaprakash', dept: 'MECH' },
-      { position: 2, name: 'Midhun Krishna', dept: 'EEE' },
-      { position: 3, name: 'Ashwin MB', dept: 'EEE' }
+      { position: 2, name: 'Nikesh', dept: 'IC' },
+      { position: 3, name: 'Rahul Manoj', dept: 'CIVIL' }
     ]
   },
   {
