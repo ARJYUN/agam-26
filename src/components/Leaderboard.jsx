@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { ScrollReveal } from './ScrollReveal';
 import { useLeaderboard } from '../hooks/useLeaderboard';
-import { Award, ChevronDown, ChevronUp, TrendingUp, TrendingDown, Minus, RefreshCw } from 'lucide-react';
+import { Award, Trophy, ChevronDown, ChevronUp, TrendingUp, TrendingDown, Minus, RefreshCw } from 'lucide-react';
 
-export const Leaderboard = () => {
+export const Leaderboard = ({ onOpenResultsModal }) => {
   const [showFullLeaderboard, setShowFullLeaderboard] = useState(false);
   const [expandedDept, setExpandedDept] = useState(null);
 
@@ -454,9 +454,9 @@ export const Leaderboard = () => {
           </div>
         </div>
 
-        {/* View Full Leaderboard toggle button */}
+        {/* View Full Leaderboard toggle button & Results Modal button */}
         <ScrollReveal delay={300}>
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center', marginTop: '40px' }}>
             <button 
               onClick={() => setShowFullLeaderboard(!showFullLeaderboard)}
               className="btn-editorial btn-editorial-secondary interactive-element"
@@ -465,6 +465,23 @@ export const Leaderboard = () => {
             >
               {showFullLeaderboard ? 'Close Standing View' : 'View Full Leaderboard'}
             </button>
+
+            {onOpenResultsModal && (
+              <button 
+                onClick={onOpenResultsModal}
+                className="btn-editorial btn-editorial-primary interactive-element"
+                data-cursor-text="RESULTS"
+                style={{ 
+                  padding: '12px 30px', 
+                  fontSize: '0.75rem',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px'
+                }}
+              >
+                <Trophy size={14} /> View All 33 Event Results
+              </button>
+            )}
           </div>
         </ScrollReveal>
 

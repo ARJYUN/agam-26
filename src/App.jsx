@@ -14,12 +14,14 @@ import { Schedule } from './components/Schedule';
 import { CategoryEventsDrawer } from './components/CategoryEventsDrawer';
 import { MerchSection } from './components/MerchSection';
 import { MerchPopup } from './components/MerchPopup';
+import { CompetitionResultsModal } from './components/CompetitionResultsModal';
 
 function App() {
   const [selectedCategoryDrawer, setSelectedCategoryDrawer] = useState(null);
   const [currentPage, setCurrentPage] = useState(window.location.hash === '#/events' ? 'events' : 'home');
   const [loading, setLoading] = useState(true);
   const [preloaderVisible, setPreloaderVisible] = useState(true);
+  const [isResultsModalOpen, setIsResultsModalOpen] = useState(false);
 
   useEffect(() => {
     // Close category drawer on page change
@@ -44,16 +46,21 @@ function App() {
     const handleHashChange = () => {
       if (window.location.hash === '#/events') {
         setCurrentPage('events');
+      } else if (window.location.hash === '#results') {
+        setIsResultsModalOpen(true);
       } else {
         setCurrentPage('home');
       }
     };
+    if (window.location.hash === '#results') {
+      setIsResultsModalOpen(true);
+    }
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
   useEffect(() => {
-    if (currentPage === 'home' && window.location.hash && window.location.hash !== '#/events') {
+    if (currentPage === 'home' && window.location.hash && window.location.hash !== '#/events' && window.location.hash !== '#results') {
       setTimeout(() => {
         const target = document.querySelector(window.location.hash);
         if (target) {
@@ -62,6 +69,17 @@ function App() {
       }, 150);
     }
   }, [currentPage]);
+
+  const handleOpenResults = () => {
+    setIsResultsModalOpen(true);
+  };
+
+  const handleCloseResults = () => {
+    setIsResultsModalOpen(false);
+    if (window.location.hash === '#results') {
+      window.history.pushState(null, null, '#home');
+    }
+  };
 
   return (
     <div className="app-container">
@@ -72,14 +90,14 @@ function App() {
       <div className="paper-texture" />
 
       {/* Navigation Header */}
-      <Header />
+      <Header onOpenResultsModal={handleOpenResults} />
 
       {currentPage === 'home' ? (
         <>
           <main style={{ position: 'relative', zIndex: 2, backgroundColor: 'var(--bg-primary)', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}>
             {/* Hero entry section with Theyyam image & parallax */}
             <div style={{ position: 'sticky', top: 0, zIndex: 1, height: '100vh' }}>
-              <Hero />
+              <Hero onOpenResultsModal={handleOpenResults} />
             </div>
 
             {/* Rest of the site scrolls over the Hero */}
@@ -91,7 +109,7 @@ function App() {
               <Countdown />
 
             {/* Expandable Department standings */}
-            <Leaderboard />
+            <Leaderboard onOpenResultsModal={handleOpenResults} />
 
             {/* Infinite Marquee Divider */}
             <MarqueeDivider />
@@ -118,7 +136,7 @@ function App() {
         </>
       ) : (
         <main style={{ position: 'relative', zIndex: 2, backgroundColor: 'var(--bg-primary)', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}>
-          <AllEventsPage />
+          <AllEventsPage onOpenResultsModal={handleOpenResults} />
         </main>
       )}
 
@@ -129,6 +147,13 @@ function App() {
       <CategoryEventsDrawer
         category={selectedCategoryDrawer}
         onClose={() => setSelectedCategoryDrawer(null)}
+        onOpenResultsModal={handleOpenResults}
+      />
+
+      {/* Official 33 Competition Results Modal */}
+      <CompetitionResultsModal 
+        isOpen={isResultsModalOpen}
+        onClose={handleCloseResults}
       />
 
       <MerchPopup />
