@@ -474,25 +474,6 @@ export const competitionResults = [
     ]
   },
   {
-    id: 'debate-english',
-    teamEvent: true,
-    eventName: 'Debate English',
-    category: 'Literary Competitions (Off Stage)',
-    categoryId: 'literary-competitions-off-stage',
-    eventId: 'debate-english-malayalam',
-    variant: 'English',
-    winners: [
-      { position: 1, name: 'Saniya George', dept: 'ECE' },
-      { position: 1, name: 'Vishnudev P', dept: 'ECE' },
-      { position: 2, name: 'Siddharth S', dept: 'CSE' },
-      { position: 2, name: 'Ardra AR', dept: 'CSE' },
-      { position: 2, name: 'Drishya', dept: 'CSE' },
-      { position: 2, name: 'Adithya Vijay', dept: 'CSE' },
-      { position: 3, name: 'Aniruth RK', dept: 'ECE' },
-      { position: 3, name: 'Gowreesh Nair', dept: 'ECE' }
-    ]
-  },
-  {
     id: 'quiz',
     teamEvent: true,
     eventName: 'Quiz',
@@ -1391,34 +1372,34 @@ export const competitionResults = [
       { position: 3, name: 'Avanthika', dept: 'ECE' }
     ]
   }
-  ];
+];
 
-  export const findEventResult = (eventTitle, eventId) => {
-    if (!eventTitle && !eventId) return null;
-    
-    if (eventId) {
-      const directIdMatch = competitionResults.find(c => c.id === eventId);
-      if (directIdMatch) return directIdMatch;
-    }
-    
-    if (!eventTitle) return null;
-    
-    const clean = (str) => (str || '').toLowerCase().replace(/[^a-z0-9]/g, '');
-    const cleanTitle = clean(eventTitle);
-    
-    // Exact clean match
-    let match = competitionResults.find(c => clean(c.eventName) === cleanTitle || clean(c.id) === cleanTitle);
-    if (match) return match;
+export const findEventResult = (eventTitle, eventId) => {
+  if (!eventTitle && !eventId) return null;
 
-    // Substring matching
-    match = competitionResults.find(c => {
-      const cleanEvent = clean(c.eventName);
-      if (cleanEvent.length < 5 || cleanTitle.length < 5) return false;
-      return cleanTitle.includes(cleanEvent) || cleanEvent.includes(cleanTitle);
-    });
-    if (match) return match;
+  if (eventId) {
+    const directIdMatch = competitionResults.find(c => c.id === eventId);
+    if (directIdMatch) return directIdMatch;
+  }
 
-    return null;
-  };
+  if (!eventTitle) return null;
+
+  const clean = (str) => (str || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  const cleanTitle = clean(eventTitle);
+
+  // Exact clean match
+  let match = competitionResults.find(c => clean(c.eventName) === cleanTitle || clean(c.id) === cleanTitle);
+  if (match) return match;
+
+  // Substring matching
+  match = competitionResults.find(c => {
+    const cleanEvent = clean(c.eventName);
+    if (cleanEvent.length < 5 || cleanTitle.length < 5) return false;
+    return cleanTitle.includes(cleanEvent) || cleanEvent.includes(cleanTitle);
+  });
+  if (match) return match;
+
+  return null;
+};
 
 export default competitionResults;
