@@ -580,34 +580,34 @@ export const competitionResults = [
       { position: 3, name: 'Nasit', dept: 'MECH' }
     ]
   }
-];
+  ];
 
-export const findEventResult = (eventTitle, eventId) => {
-  if (!eventTitle && !eventId) return null;
-  
-  if (eventId) {
-    const directIdMatch = competitionResults.find(c => c.id === eventId);
-    if (directIdMatch) return directIdMatch;
-  }
-  
-  if (!eventTitle) return null;
-  
-  const clean = (str) => (str || '').toLowerCase().replace(/[^a-z0-9]/g, '');
-  const cleanTitle = clean(eventTitle);
-  
-  // Exact clean match
-  let match = competitionResults.find(c => clean(c.eventName) === cleanTitle || clean(c.id) === cleanTitle);
-  if (match) return match;
+  export const findEventResult = (eventTitle, eventId) => {
+    if (!eventTitle && !eventId) return null;
+    
+    if (eventId) {
+      const directIdMatch = competitionResults.find(c => c.id === eventId);
+      if (directIdMatch) return directIdMatch;
+    }
+    
+    if (!eventTitle) return null;
+    
+    const clean = (str) => (str || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+    const cleanTitle = clean(eventTitle);
+    
+    // Exact clean match
+    let match = competitionResults.find(c => clean(c.eventName) === cleanTitle || clean(c.id) === cleanTitle);
+    if (match) return match;
 
-  // Substring matching
-  match = competitionResults.find(c => {
-    const cleanEvent = clean(c.eventName);
-    if (cleanEvent.length < 5 || cleanTitle.length < 5) return false;
-    return cleanTitle.includes(cleanEvent) || cleanEvent.includes(cleanTitle);
-  });
-  if (match) return match;
+    // Substring matching
+    match = competitionResults.find(c => {
+      const cleanEvent = clean(c.eventName);
+      if (cleanEvent.length < 5 || cleanTitle.length < 5) return false;
+      return cleanTitle.includes(cleanEvent) || cleanEvent.includes(cleanTitle);
+    });
+    if (match) return match;
 
-  return null;
-};
+    return null;
+  };
 
 export default competitionResults;
