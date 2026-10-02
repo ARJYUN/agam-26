@@ -87,7 +87,7 @@ export function processSheetData(csvRows) {
 
   // Header row normalization
   const headerRow = csvRows[0].map(h => h.toLowerCase().replace(/[^a-z0-9]/g, ''));
-  
+
   // Find column indices by flexible header names
   const deptCol = headerRow.findIndex(h => ['dept', 'code', 'department', 'branch', 'deptcode'].includes(h));
   const nameCol = headerRow.findIndex(h => ['name', 'deptname', 'departmentname', 'fullname'].includes(h));
@@ -107,7 +107,7 @@ export function processSheetData(csvRows) {
     if (!rawDept) continue;
 
     const deptUpper = rawDept.toUpperCase().trim();
-    
+
     // Parse points (strip non-numeric except minus)
     const rawPoints = effectivePointsCol !== -1 ? (row[effectivePointsCol] || '0') : '0';
     const cleanPointsStr = String(rawPoints).replace(/[^0-9-]/g, '');
@@ -160,7 +160,7 @@ const STORAGE_TIME_KEY = 'agam_leaderboard_last_updated';
  */
 export async function fetchLeaderboardData(sheetUrlOrId, sheetName = '') {
   const url = getGoogleSheetCsvUrl(sheetUrlOrId, sheetName);
-  
+
   if (!url) {
     // No sheet URL configured yet, return default data
     return {
@@ -208,7 +208,7 @@ export async function fetchLeaderboardData(sheetUrlOrId, sheetName = '') {
     };
   } catch (err) {
     console.warn('Could not fetch latest Google Sheet leaderboard:', err.message);
-    
+
     // Check localStorage cache
     try {
       const cached = localStorage.getItem(STORAGE_CACHE_KEY);

@@ -44,10 +44,10 @@ export const Leaderboard = () => {
   };
 
   return (
-    <section 
-      id="leaderboard" 
-      className="section-wrapper bg-paper-light" 
-      style={{ 
+    <section
+      id="leaderboard"
+      className="section-wrapper bg-paper-light"
+      style={{
         position: 'relative',
         paddingTop: '100px',
         paddingBottom: '100px'
@@ -65,7 +65,7 @@ export const Leaderboard = () => {
       </div>
 
       <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 2, padding: '0 20px' }}>
-        
+
         {/* Header Title */}
         <ScrollReveal>
           <div className="editorial-heading-block" style={{ textAlign: 'center', margin: '0 auto 60px auto' }}>
@@ -151,7 +151,8 @@ export const Leaderboard = () => {
           gap: '50px',
           alignItems: 'center'
         }} className="leaderboard-grid-wrapper">
-          <style dangerouslySetInnerHTML={{__html: `
+          <style dangerouslySetInnerHTML={{
+            __html: `
             @media (min-width: 992px) {
               .leaderboard-grid-wrapper {
                 flex-direction: row !important;
@@ -181,7 +182,7 @@ export const Leaderboard = () => {
             marginBottom: '20px',
             position: 'relative'
           }} className="podiums-container">
-            
+
             {/* RANK 2 (Silver Podium) */}
             <ScrollReveal delay={150}>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '130px' }}>
@@ -385,7 +386,7 @@ export const Leaderboard = () => {
 
                 return (
                   <div key={deptRow.dept} style={{ borderBottom: '1px dashed var(--border-color)', paddingBottom: '6px' }}>
-                    <div 
+                    <div
                       onClick={() => toggleExpand(deptRow.dept)}
                       style={{
                         display: 'flex',
@@ -405,7 +406,7 @@ export const Leaderboard = () => {
                           {deptRow.dept}
                         </span>
                       </div>
-                      
+
                       <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
                         <span style={{ fontWeight: '700', color: 'var(--text-deep)' }}>
                           {deptRow.points}
@@ -425,7 +426,8 @@ export const Leaderboard = () => {
                         fontSize: '0.8rem',
                         color: 'var(--text-muted)'
                       }}>
-                        <style dangerouslySetInnerHTML={{__html: `
+                        <style dangerouslySetInnerHTML={{
+                          __html: `
                           @keyframes fadeInDown {
                             from { opacity: 0; transform: translateY(-10px); }
                             to { opacity: 1; transform: translateY(0); }
@@ -457,7 +459,7 @@ export const Leaderboard = () => {
         {/* View Full Leaderboard toggle button */}
         <ScrollReveal delay={300}>
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
-            <button 
+            <button
               onClick={() => setShowFullLeaderboard(!showFullLeaderboard)}
               className="btn-editorial btn-editorial-secondary interactive-element"
               data-cursor-text="EXPAND"
@@ -496,11 +498,11 @@ export const Leaderboard = () => {
             maxHeight: '90vh',
             overflowY: 'auto'
           }}>
-            <button 
+            <button
               onClick={() => setShowFullLeaderboard(false)}
               style={{
                 position: 'absolute', right: 'clamp(10px, 3vw, 20px)', top: 'clamp(10px, 3vw, 20px)',
-                background: 'rgba(37, 32, 26, 0.05)', border: '1px solid var(--border-color)', 
+                background: 'rgba(37, 32, 26, 0.05)', border: '1px solid var(--border-color)',
                 cursor: 'pointer', borderRadius: '50%', width: 'clamp(28px, 6vw, 36px)', height: 'clamp(28px, 6vw, 36px)',
                 color: 'var(--accent-red)', display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontWeight: 'bold', fontSize: 'clamp(1rem, 4vw, 1.2rem)', transition: 'all 0.3s'
@@ -526,20 +528,20 @@ export const Leaderboard = () => {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {standings.map((deptRow, index) => (
-                <div key={deptRow.dept} style={{ 
-                  display: 'flex', 
-                  justifyContent: 'space-between', 
+                <div key={deptRow.dept} style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
                   alignItems: 'center',
                   backgroundColor: index < 3 ? 'var(--bg-tertiary)' : 'transparent',
-                  border: '1px solid var(--border-color)', 
+                  border: '1px solid var(--border-color)',
                   borderRadius: '4px',
-                  padding: 'clamp(8px, 2vw, 12px) clamp(10px, 3vw, 20px)' 
+                  padding: 'clamp(8px, 2vw, 12px) clamp(10px, 3vw, 20px)'
                 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(10px, 3vw, 20px)' }}>
-                    <span style={{ 
-                      fontFamily: 'var(--font-display)', 
-                      fontSize: 'clamp(1.1rem, 4vw, 1.5rem)', 
-                      fontWeight: 'bold', 
+                    <span style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: 'clamp(1.1rem, 4vw, 1.5rem)',
+                      fontWeight: 'bold',
                       color: index === 0 ? '#D4AF37' : index === 1 ? '#9E9E9E' : index === 2 ? '#CD7F32' : 'var(--text-muted)',
                       minWidth: '25px',
                       textAlign: 'center'
