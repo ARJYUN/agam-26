@@ -481,7 +481,7 @@ export const Leaderboard = ({ onOpenResultsModal }) => {
                   gap: '8px'
                 }}
               >
-                <Trophy size={14} /> View All 33 Event Results
+                <Trophy size={14} /> View All Event Results
               </button>
             )}
           </div>
