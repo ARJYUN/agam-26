@@ -856,7 +856,197 @@ export const eventCategories = [
         "time": "",
         "venue": "",
         "rules": []
-      }
+      },
+      {
+    "id": "mohiniyattam",
+    "title": "Mohiniyattam",
+    "desc": "Mohiniyattam",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "step-n-syndro",
+    "title": "Step N Syndro",
+    "desc": "Step N Syndro",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "jazz",
+    "title": "Jazz",
+    "desc": "Jazz",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "kathak",
+    "title": "Kathak",
+    "desc": "Kathak",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "odissi",
+    "title": "Odissi",
+    "desc": "Odissi",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "keyboard",
+    "title": "Keyboard",
+    "desc": "Keyboard",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "drums",
+    "title": "Drums",
+    "desc": "Drums",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "mridangam",
+    "title": "Mridangam",
+    "desc": "Mridangam",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "vattappattu",
+    "title": "Vattappattu",
+    "desc": "Vattappattu",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "nostalgia",
+    "title": "Nostalgia",
+    "desc": "Nostalgia",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "duffmutt",
+    "title": "Duffmutt",
+    "desc": "Duffmutt",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "chendamelam",
+    "title": "Chendamelam",
+    "desc": "Chendamelam",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "chenda-thayambakam",
+    "title": "Chenda (Thayambakam)",
+    "desc": "Chenda (Thayambakam)",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "western-dance",
+    "title": "Western Dance",
+    "desc": "Western Dance",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "arabanamutt",
+    "title": "Arabanamutt",
+    "desc": "Arabanamutt",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "keralanadanam",
+    "title": "Keralanadanam",
+    "desc": "Keralanadanam",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "guitar",
+    "title": "Guitar",
+    "desc": "Guitar",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "oppana",
+    "title": "Oppana",
+    "desc": "Oppana",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  },
+  {
+    "id": "pooramkali",
+    "title": "Pooramkali",
+    "desc": "Pooramkali",
+    "prize": "",
+    "fee": "",
+    "time": "",
+    "venue": "",
+    "rules": []
+  }
     ]
   }
 ];

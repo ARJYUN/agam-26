@@ -370,6 +370,215 @@ export const competitionResults = [
       { position: 2, name: 'Aswathi', dept: 'ECE' },
       { position: 3, name: 'Aibel', dept: 'CSE' }
     ]
+  },
+  {
+  id: 'mohiniyattam',
+  eventName: 'Mohiniyattam',
+  category: 'Dance Competitions (On Stage)',
+  categoryId: 'dance-competitions-on-stage',
+  winners: [
+    { position: 1, name: 'Nidhina', dept: 'IC' },
+    { position: 1, name: 'Akshatha', dept: 'ECE' },
+    { position: 2, name: 'Aswathi', dept: 'IC' },
+    { position: 2, name: 'Anugraha', dept: 'IC' },
+    { position: 3, name: 'Pavithra', dept: 'CIVIL' }
+  ]
+  },
+  {
+    id: 'step-n-syndro',
+    eventName: 'Step N Syndro',
+    category: 'Dance Competitions (On Stage)',
+    categoryId: 'dance-competitions-on-stage',
+    winners: [
+      { position: 1, name: 'Mrudula and Farhana', dept: 'CSE' },
+      { position: 2, name: 'Ananya and Gayathri', dept: 'ECE' },
+      { position: 3, name: 'Anjali Krishna K & Thejas Lal H', dept: 'IC' },
+      { position: 3, name: 'Kashinath and Abhin P', dept: 'IC' }
+    ]
+  },
+  {
+    id: 'jazz',
+    eventName: 'Jazz',
+    category: 'Dance Competitions (On Stage)',
+    categoryId: 'dance-competitions-on-stage',
+    winners: [
+      { position: 1, name: 'Vishal', dept: 'CIVIL' }
+    ]
+  },
+  {
+    id: 'kathak',
+    eventName: 'Kathak',
+    category: 'Dance Competitions (On Stage)',
+    categoryId: 'dance-competitions-on-stage',
+    winners: [
+      { position: 1, name: 'Shreya Padmakumar', dept: 'CSE' },
+      { position: 2, name: 'Nandhana SP', dept: 'IC' },
+      { position: 3, name: 'Anjali VP', dept: 'EEE' }
+    ]
+  },
+  {
+    id: 'odissi',
+    eventName: 'Odissi',
+    category: 'Dance Competitions (On Stage)',
+    categoryId: 'dance-competitions-on-stage',
+    winners: [
+      { position: 1, name: 'Nandana', dept: 'EEE' }
+    ]
+  },
+  {
+    id: 'keyboard',
+    eventName: 'Keyboard',
+    category: 'Music Competitions (On Stage)',
+    categoryId: 'music-competitions-on-stage',
+    winners: [
+      { position: 1, name: 'Harikrishna M', dept: 'MECH' },
+      { position: 2, name: 'Ankith S', dept: 'CSE' },
+      { position: 2, name: 'Aswin', dept: 'IC' },
+      { position: 3, name: 'Anasvar Ram N', dept: 'ECE' }
+    ]
+  },
+  {
+    id: 'drums',
+    eventName: 'Drums',
+    category: 'Music Competitions (On Stage)',
+    categoryId: 'music-competitions-on-stage',
+    winners: [
+      { position: 1, name: 'Shyam Mohan', dept: 'EEE' },
+      { position: 2, name: 'Raj P', dept: 'MECH' },
+      { position: 3, name: 'Niranjan S', dept: 'MECH' }
+    ]
+  },
+  {
+    id: 'mridangam',
+    eventName: 'Mridangam',
+    category: 'Music Competitions (On Stage)',
+    categoryId: 'music-competitions-on-stage',
+    winners: [
+      { position: 1, name: 'Anasvar Ram N', dept: 'ECE' },
+      { position: 2, name: 'Navneeth', dept: 'MECH' },
+      { position: 3, name: 'Adarsh Sreekumar', dept: 'CSE' },
+      { position: 3, name: 'Rahul S', dept: 'IC' }
+    ]
+  },
+  {
+    id: 'vattappattu',
+    eventName: 'Vattappattu',
+    category: 'Music Competitions (On Stage)',
+    categoryId: 'music-competitions-on-stage',
+    winners: [
+      { position: 1, name: 'Ashil Muhammed', dept: 'EEE' },
+      { position: 2, name: 'Harikrishnan PV', dept: 'ECE' },
+      { position: 3, name: 'Aboobacker', dept: 'CSE' }
+    ]
+  },
+  {
+    id: 'nostalgia',
+    eventName: 'Nostalgia',
+    category: 'Music Competitions (On Stage)',
+    categoryId: 'music-competitions-on-stage',
+    winners: [
+      { position: 1, name: 'Niranjana', dept: 'EEE' },
+      { position: 2, name: 'Gayathri', dept: 'ECE' },
+      { position: 3, name: 'Akshaya', dept: 'CSE' }
+    ]
+  },
+  {
+    id: 'duffmutt',
+    eventName: 'Duffmutt',
+    category: 'Music Competitions (On Stage)',
+    categoryId: 'music-competitions-on-stage',
+    winners: [
+      { position: 1, name: 'Saneen', dept: 'EEE' },
+      { position: 2, name: 'Niyas', dept: 'CSE' },
+      { position: 3, name: 'Shafnu', dept: 'ECE' }
+    ]
+  },
+  {
+    id: 'chendamelam',
+    eventName: 'Chendamelam',
+    category: 'Music Competitions (On Stage)',
+    categoryId: 'music-competitions-on-stage',
+    winners: [
+      { position: 1, name: 'Navneeth Jayaprakash', dept: 'MECH' },
+      { position: 2, name: 'Nikesh', dept: 'IC' },
+      { position: 3, name: 'Rahul Manoj', dept: 'CIVIL' }
+    ]
+  },
+  {
+    id: 'chenda-thayambakam',
+    eventName: 'Chenda (Thayambakam)',
+    category: 'Music Competitions (On Stage)',
+    categoryId: 'music-competitions-on-stage',
+    winners: [
+      { position: 1, name: 'Navneeth Jayaprakash', dept: 'MECH' }
+    ]
+  },
+  {
+    id: 'western-dance',
+    eventName: 'Western Dance',
+    category: 'Dance Competitions (On Stage)',
+    categoryId: 'dance-competitions-on-stage',
+    winners: [
+      { position: 1, name: 'Akshaya', dept: 'CSE' },
+      { position: 2, name: 'Thejus', dept: 'IC' },
+      { position: 3, name: 'Avanthika', dept: 'ECE' }
+    ]
+  },
+  {
+    id: 'arabanamutt',
+    eventName: 'Arabanamutt',
+    category: 'Dance Competitions (On Stage)',
+    categoryId: 'dance-competitions-on-stage',
+    winners: [
+      { position: 1, name: 'Dhanush', dept: 'EEE' },
+      { position: 2, name: 'Rayees', dept: 'CIVIL' }
+    ]
+  },
+  {
+    id: 'keralanadanam',
+    eventName: 'Keralanadanam',
+    category: 'Dance Competitions (On Stage)',
+    categoryId: 'dance-competitions-on-stage',
+    winners: [
+      { position: 1, name: 'Sivani', dept: 'EEE' },
+      { position: 2, name: 'Anchima', dept: 'CIVIL' },
+      { position: 3, name: 'Nivedikha', dept: 'IC' }
+    ]
+  },
+  {
+    id: 'guitar',
+    eventName: 'Guitar',
+    category: 'Music Competitions (On Stage)',
+    categoryId: 'music-competitions-on-stage',
+    winners: [
+      { position: 1, name: 'Rohith Krishna R', dept: 'CSE' },
+      { position: 2, name: 'Anugrah K', dept: 'CSE' },
+      { position: 3, name: 'Abhijith VS', dept: 'EEE' },
+      { position: 3, name: 'Ashwin', dept: 'IC' }
+    ]
+  },
+  {
+    id: 'oppana',
+    eventName: 'Oppana',
+    category: 'Dance Competitions (On Stage)',
+    categoryId: 'dance-competitions-on-stage',
+    winners: [
+      { position: 1, name: 'Shamila', dept: 'CSE' },
+      { position: 2, name: 'Fathima Fidha', dept: 'CIVIL' },
+      { position: 3, name: 'Rose', dept: 'CIVIL' },
+      { position: 3, name: 'Sahwa', dept: 'EEE' }
+    ]
+  },
+  {
+    id: 'pooramkali',
+    eventName: 'Pooramkali',
+    category: 'Dance Competitions (On Stage)',
+    categoryId: 'dance-competitions-on-stage',
+    winners: [
+      { position: 1, name: 'Abhinav', dept: 'EEE' },
+      { position: 2, name: 'Anchal Manoj', dept: 'CIVIL' },
+      { position: 3, name: 'Nasit', dept: 'MECH' }
+    ]
   }
 ];
 
